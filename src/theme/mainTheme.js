@@ -1,0 +1,20 @@
+export const theme = {
+  background: 'hsl(254, 39%, 15%)',
+  accent: 'hsl(252, 59%, 60%)',
+  accent2: 'hsl(243, 22%, 33%)',
+  black: 'hsl(0, 0%, 61%)',
+  grey: 'hsl(232, 16%, 82%)',
+  white: '	hsl(0, 0%, 100%)',
+  progressBarActive: 'hsl(176, 94%, 35%)',
+  progressBarInactive: 'hsl(174, 53%, 39%)',
+  light: 300,
+  bold: 600,
+  fontSize: {
+    xxs: '1rem',
+    xs: '1.2rem',
+    s: '1.6rem',
+    m: '2.1rem',
+    l: '2.4rem',
+    xl: '4rem',
+  },
+};
