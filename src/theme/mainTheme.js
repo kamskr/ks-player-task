@@ -8,7 +8,7 @@ export const theme = {
   progressBarActive: 'hsl(176, 94%, 35%)',
   progressBarInactive: 'hsl(174, 53%, 39%)',
   light: 300,
-  bold: 600,
+  bold: 900,
   fontSize: {
     xxs: '1rem',
     xs: '1.2rem',
