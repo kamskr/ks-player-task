@@ -2,8 +2,9 @@ import styled, { css } from 'styled-components';
 import React, { Component, Fragment } from 'react';
 
 const Icon = styled.button`
-  width: 67px;
+  width: 30px;
   height: 67px;
+  margin: 0 20px;
   background-image: url(${({ icon }) => icon});
   background-repeat: no-repeat;
   background-size: 100%;
@@ -13,6 +14,7 @@ const Icon = styled.button`
   ${({ playingIcon }) =>
     playingIcon &&
     css`
+      margin: 0;
       width: 204px;
       height: 204px;
       background-size: 100%;
@@ -22,6 +24,7 @@ const Icon = styled.button`
   ${({ notPlayingIcon }) =>
     notPlayingIcon &&
     css`
+      margin: 0 40px;
       width: 124px;
       height: 124px;
       background-size: 100%;
