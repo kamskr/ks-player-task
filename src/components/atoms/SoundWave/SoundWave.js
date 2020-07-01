@@ -1,10 +1,11 @@
 import styled, { css, withTheme } from 'styled-components';
-import React, { Component, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 const Canvas = styled.canvas`
   width: 50%;
-  height: 50px;
+  height: 30px;
 `;
+var speed = 3;
 
 const requestAnimationFrame =
   window.requestAnimationFrame ||
@@ -17,13 +18,14 @@ const start = (current, theme, progress) => {
   const ctx = current.getContext('2d');
   const width = current.width;
   const height = current.height;
-  ctx.lineWidth = width / 200;
+  ctx.lineWidth = 2;
   ctx.strokeStyle = theme.accent;
-  for (let x = 0; x < width; x += ctx.lineWidth) {
+
+  for (let x = 0.5; x < width; x += ctx.lineWidth) {
     lineArray.push({
       x,
-      y: height / 2 - Math.random() * (x % 6 === 0 ? height : height * 0.75) + 10,
-      direction: 1,
+      y: 50 - Math.random() * 50,
+      direction: speed - 1 + Math.random() * speed,
     });
   }
   console.log(ctx);
@@ -33,11 +35,12 @@ const start = (current, theme, progress) => {
 const draw = (lineArray, width, height, ctx) => {
   ctx.clearRect(0, 0, width, height);
   for (let line of lineArray) {
-    if (line.y >= height || line.y <= 0) {
+    if (line.y >= height / 1.5 || line.y <= 0) {
       line.direction = -line.direction;
     }
 
     ctx.beginPath();
+    ctx.lineCap = 'round';
     ctx.moveTo(line.x, height);
     ctx.lineTo(line.x, (line.y += line.direction));
     ctx.stroke();
