@@ -1,5 +1,5 @@
 export const theme = {
-  background: 'hsl(254, 39%, 15%)',
+  background: 'hsl(252, 39%, 15%)',
   accent: 'hsl(252, 59%, 60%)',
   accent2: 'hsl(243, 22%, 33%)',
   black: 'hsl(0, 0%, 61%)',
