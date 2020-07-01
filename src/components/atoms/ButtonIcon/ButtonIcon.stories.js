@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs';
 import ButtonIcon from './ButtonIcon';
 import BackIcon from '../../../assets/icons/back_ico.svg';
 import HideIcon from '../../../assets/icons/hide_ico.svg';
@@ -15,10 +14,10 @@ import ShuffleIcon from '../../../assets/icons/shuffle_ico.svg';
 
 export default {
   title: 'ButtonIcon',
-  decorators: [(storyFn) => <YellowBackground>{storyFn()}</YellowBackground>],
+  decorators: [(storyFn) => <DarkBackground>{storyFn()}</DarkBackground>],
 };
 
-const YellowBackground = styled.div`
+const DarkBackground = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
