@@ -43,7 +43,7 @@ const MoreWrapper = styled.div`
 `;
 
 const ButtonIcon = (props) => (
-  <Fragment>
+  <>
     {!props.moreIcon && (
       <Icon
         icon={props.icon}
@@ -58,7 +58,7 @@ const ButtonIcon = (props) => (
         <Icon icon={props.icon} moreIcon={props.moreIcon} />
       </MoreWrapper>
     )}
-  </Fragment>
+  </>
 );
 
 export default ButtonIcon;

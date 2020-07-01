@@ -5,8 +5,7 @@ export const theme = {
   black: 'hsl(0, 0%, 19%)',
   grey: 'hsl(0, 0%, 61%)',
   white: '	hsl(0, 0%, 100%)',
-  progressBarActive: 'hsl(176, 94%, 35%)',
-  progressBarInactive: 'hsl(174, 53%, 39%)',
+  progressBar: 'hsl(176, 94%, 40%)',
   light: 300,
   bold: 900,
   fontSize: {
