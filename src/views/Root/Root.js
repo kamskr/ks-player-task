@@ -7,7 +7,8 @@ import MediaControllBar from '../../components/molecules/MediaControllBar/MediaC
 import BottomNavbar from '../../components/organisms/BottomNavbar/BottomNavbar';
 import SongDisplay from '../../components/molecules/SongDisplay/SongDisplay';
 import SoundWave from '../../components/atoms/SoundWave/SoundWave';
-import ProgressSection from '../../components/organisms/ProgressSection/ProgressSection';
+import ProgressSection from '../../components/molecules/ProgressSection/ProgressSection';
+import Player from '../../components/organisms/Player/Player';
 //redux
 import { Provider } from 'react-redux';
 import store from '../../redux/store';
@@ -18,7 +19,7 @@ const Root = () => (
     <ThemeProvider theme={theme}>
       <Provider store={store}>
         <div>
-          <ProgressSection />
+          <Player />
         </div>
       </Provider>
     </ThemeProvider>

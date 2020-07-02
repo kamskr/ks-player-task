@@ -8,6 +8,10 @@ import BackIcon from '../../../assets/icons/back_ico.svg';
 import PlayActiveIcon from '../../../assets/icons/Play_active.png';
 import PlayInactiveIcon from '../../../assets/icons/Play_inactive.png';
 import MoreIcon from '../../../assets/icons/more_ico.svg';
+//redux
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { play, pause } from '../../../redux/actionCreators/songsActionCreators';
 
 const StyledWrapper = styled.div`
   width: 700px;
@@ -69,8 +73,8 @@ const TopNavbar = ({ isPlaying, navType }) => (
     <InnerRightWrapper>
       {navType === 'playlist' && (
         <>
-          {isPlaying === 'true' && <ButtonIcon icon={PlayActiveIcon} playingIcon />}
-          {isPlaying === 'false' && <ButtonIcon icon={PlayInactiveIcon} notPlayingIcon />}
+          {isPlaying && <ButtonIcon icon={PlayActiveIcon} playingIcon onClick={pause} />}
+          {!isPlaying && <ButtonIcon icon={PlayInactiveIcon} notPlayingIcon onClick={play} />}
         </>
       )}
       {navType !== 'playlist' && <ButtonIcon icon={MoreIcon} moreIcon />}
@@ -78,12 +82,12 @@ const TopNavbar = ({ isPlaying, navType }) => (
   </StyledWrapper>
 );
 
-TopNavbar.propTypes = {
-  navType: PropTypes.oneOf(['main', 'playlist', 'viewMore']),
+const mapDispatchToProps = {
+  play,
+  pause,
 };
 
-TopNavbar.defaultProps = {
-  navType: 'main',
-};
-
-export default TopNavbar;
+const mapStateToProps = (state) => ({
+  isPlaying: state.songs.isPlaying,
+});
+export default connect(mapStateToProps, mapDispatchToProps)(TopNavbar);

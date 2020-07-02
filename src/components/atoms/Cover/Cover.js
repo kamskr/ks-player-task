@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 
 const Cover = styled.div`
-  width: 140px;
-  height: 140px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   background-image: url(${({ coverImageUrl }) => coverImageUrl});
   background-repeat: no-repeat;
@@ -16,8 +16,8 @@ const Cover = styled.div`
   ${({ active }) =>
     active &&
     css`
-      width: 300px;
-      height: 300px;
+      width: 200px;
+      height: 200px;
     `}
 `;
 

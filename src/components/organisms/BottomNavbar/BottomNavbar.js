@@ -12,6 +12,7 @@ import { connect } from 'react-redux';
 const StyledWrapper = styled.div`
   display: flex;
   width: 100%;
+  background-color: ${({ theme }) => theme.white};
 `;
 const Next = styled.span`
   font-size: ${({ theme }) => theme.fontSize.s};

@@ -1,4 +1,4 @@
-import React, { useMemo, useEffect, useState } from 'react';
+import React, { useMemo, useEffect, useState, useCallback } from 'react';
 import styled, { css, withTheme } from 'styled-components';
 import ProgressBar from '../../atoms/ProgressBar/ProgressBar';
 import SoundWave from '../../atoms/SoundWave/SoundWave';
@@ -18,13 +18,20 @@ const ProgressBarWrapper = styled.div`
 const Span = styled.span`
   margin: auto 0;
   font-size: ${({ theme }) => theme.fontSize.xs};
-  color: ${({ theme }) => theme.black};
+  color: ${({ theme }) => theme.grey};
 `;
 
 const ProgressSection = ({ songsById, songs, activeSongIndex, isPlaying, repeat, changeSong }) => {
   const [songProgress, setSongProgress] = useState(0);
   const song = songsById[songs[activeSongIndex]];
   const percent = useMemo(() => (songProgress / song.duration) * 100, [songProgress]);
+  const rewind = useCallback(
+    (progress) => {
+      const sec = (progress * song.duration) / 100;
+      setSongProgress(sec);
+    },
+    [song.duration],
+  );
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -39,15 +46,16 @@ const ProgressSection = ({ songsById, songs, activeSongIndex, isPlaying, repeat,
         changeSong(nextSongIndex);
         setSongProgress(0);
       }
-
-      if (lastActiveSongIndex !== activeSongIndex) {
-        clearTimeout(timer);
-        setSongProgress(0);
-        lastActiveSongIndex = activeSongIndex;
-      }
     }, 1000);
+
+    if (lastActiveSongIndex !== activeSongIndex) {
+      clearTimeout(timer);
+      setSongProgress(0);
+      lastActiveSongIndex = activeSongIndex;
+    }
+
     return () => clearTimeout(timer);
-  }, [songProgress]);
+  }, [songProgress, isPlaying, activeSongIndex, song, songs]);
 
   return (
     <StyledWrapper>
@@ -57,7 +65,7 @@ const ProgressSection = ({ songsById, songs, activeSongIndex, isPlaying, repeat,
             'm:ss',
           )}
         </Span>
-        <ProgressBar progress={percent} />
+        <ProgressBar progress={percent} onRewind={rewind} />
         <Span>
           {moment({ minutes: Math.floor(song.duration / 60), seconds: song.duration % 60 }).format(
             'm:ss',

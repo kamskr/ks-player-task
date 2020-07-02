@@ -15,8 +15,7 @@ const DarkBackground = styled.div`
   height: 500px;
   background: ${({ theme }) => theme.background};
 `;
-export const topNavbarMain = () => <TopNavbar isPlaying="false" navType="main" />;
-export const topNavbarPlaylistActive = () => <TopNavbar isPlaying="true" navType="playlist" />;
-export const topNavbarPlaylistInactive = () => <TopNavbar isPlaying="false" navType="playlist" />;
-export const topNavbarMore = () => <TopNavbar isPlaying="false" navType="viewMore" />;
+export const topNavbarMain = () => <TopNavbar navType="main" />;
+export const topNavbarPlaylist = () => <TopNavbar navType="playlist" />;
+export const topNavbarMore = () => <TopNavbar navType="viewMore" />;
 // Knobs as dynamic variables.

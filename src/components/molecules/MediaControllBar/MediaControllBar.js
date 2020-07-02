@@ -22,6 +22,7 @@ const StyledWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 `;
 
 const getRandomSong = (current, length) => {
@@ -61,6 +62,7 @@ const MediaControllBar = ({
     changeSong(nextSongIndex);
   }, [songs, activeSongIndex, changeSong]);
 
+  console.log('renderuje');
   return (
     <StyledWrapper>
       <ButtonIcon icon={ShuffleIcon} onClick={shuffle} />

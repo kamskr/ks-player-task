@@ -8,41 +8,64 @@ const BarContainer = styled.div`
   margin: auto 10px;
 `;
 
-const ActiveBar = styled.div`
+const ActiveBar = styled.input`
   transition: 0.3s;
-  position: absolute;
-  background: ${({ theme }) => theme.progressBar};
-  width: ${({ progress }) => progress + '%'};
-  height: 6px;
-  min-width: 6px;
-  border-radius: 6px;
-  top: -3px;
-`;
-const BackgroundBar = styled.div`
+  -webkit-appearance: none;
   position: absolute;
   background: ${({ theme }) => theme.progressBar};
   height: 2px;
-  width: 100%;
-  text-align: center;
-  top: -1px;
+  border-radius: 6px;
+  width: 99%;
+  top: -3px;
+  :focus {
+    outline: none;
+  }
+  ::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background: ${({ theme }) => theme.progressBar};
+    cursor: pointer;
+  }
+  ::-webkit-slider-runnable-track {
+  }
+  :focus::-webkit-slider-runnable-track {
+  }
 `;
+// const BackgroundBar = styled.div`
+//   position: absolute;
+//   background: ${({ theme }) => theme.progressBar};
+//   height: 2px;
+//   width: 100%;
+//   text-align: center;
+//   top: -1px;
+// `;
 
 const Dot = styled.div`
   background: ${({ theme }) => theme.progressBar};
   position: absolute;
   right: 0;
-  height: 6px;
-  width: 6px;
-  top: -3px;
+
+  height: 8px;
+  width: 8px;
+  top: -4px;
   border-radius: 6px;
 `;
 
-const ProgressBar = ({ progress }) => (
+const ProgressBar = ({ progress, onRewind }) => (
   <BarContainer>
-    <ActiveBar progress={progress} />
-    <BackgroundBar />
+    <ActiveBar
+      type="range"
+      value={progress}
+      min="0"
+      max="100"
+      step="1"
+      onChange={({ target }) => onRewind(parseInt(target.value))}
+    />
+    {/* <BackgroundBar /> */}
     <Dot />
   </BarContainer>
 );
-
 export default ProgressBar;
+// https://dev.to/richiksc/standardizing-input-type-range-styling-3lkl

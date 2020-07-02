@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import Cover from '../../atoms/Cover/Cover';
 //slider
@@ -11,7 +11,6 @@ import { changeSong } from '../../../redux/actionCreators/songsActionCreators';
 
 const StyledWrapper = styled.div`
   width: 100vw;
-  height: 100vh;
 `;
 const CoverWrapper = styled.div`
   height: 300px;
@@ -30,10 +29,15 @@ const SongSlider = ({ songsIds, songsById, changeSong, activeSongIndex }) => {
     beforeChange: null,
     afterChange: (current) => changeSong(current),
   };
+  const ref = useRef();
+
+  useEffect(() => {
+    ref.current.slickGoTo(activeSongIndex);
+  }, [activeSongIndex]);
 
   return (
     <StyledWrapper>
-      <Slider {...settings}>
+      <Slider {...settings} ref={ref}>
         {songsIds.map((id, index) => (
           <CoverWrapper key={id + '-song'}>
             <Cover
