@@ -2,7 +2,7 @@ import styled, { css, withTheme } from 'styled-components';
 import React, { useRef, useEffect } from 'react';
 
 const Canvas = styled.canvas`
-  width: 50%;
+  width: 100%;
   height: 30px;
 `;
 var speed = 3;
@@ -28,25 +28,26 @@ const start = (current, theme, progress) => {
       direction: speed - 1 + Math.random() * speed,
     });
   }
-  console.log(ctx);
-  draw(lineArray, width, height, ctx);
+
+  draw(lineArray, width, height, ctx, progress);
 };
 
-const draw = (lineArray, width, height, ctx) => {
+const draw = (lineArray, width, height, ctx, progress) => {
   ctx.clearRect(0, 0, width, height);
   for (let line of lineArray) {
     if (line.y >= height / 1.5 || line.y <= 0) {
       line.direction = -line.direction;
     }
-
-    ctx.beginPath();
-    ctx.lineCap = 'round';
-    ctx.moveTo(line.x, height);
-    ctx.lineTo(line.x, (line.y += line.direction));
-    ctx.stroke();
+    if (line.x <= width * (progress / 100)) {
+      ctx.beginPath();
+      ctx.lineCap = 'round';
+      ctx.moveTo(line.x, height);
+      ctx.lineTo(line.x, (line.y += line.direction));
+      ctx.stroke();
+    }
   }
 
-  requestAnimationFrame(() => draw(lineArray, width, height, ctx));
+  requestAnimationFrame(() => draw(lineArray, width, height, ctx, progress));
 };
 
 const SoundWave = ({ progress, theme }) => {

@@ -7,7 +7,7 @@ const initialState = {
   byId: songs,
   allIds: songList,
   activeSongIndex: 0,
-  isPlaying: false,
+  isPlaying: true,
   repeat: false,
 };
 

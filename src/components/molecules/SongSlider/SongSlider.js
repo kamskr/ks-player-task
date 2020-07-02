@@ -43,7 +43,6 @@ const SongSlider = ({ songsIds, songsById, changeSong, activeSongIndex }) => {
           </CoverWrapper>
         ))}
       </Slider>
-      <p>Text</p>
     </StyledWrapper>
   );
 };
