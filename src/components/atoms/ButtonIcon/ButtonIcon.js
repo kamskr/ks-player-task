@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import React, { Component, Fragment } from 'react';
 
-const Icon = styled.button`
+const IconBtn = styled.button`
   width: 30px;
   height: 67px;
   margin: 0 20px;
@@ -11,6 +11,7 @@ const Icon = styled.button`
   background-position: center;
   background-color: transparent;
   border: none;
+  outline: none;
   ${({ playingIcon }) =>
     playingIcon &&
     css`
@@ -45,16 +46,19 @@ const Icon = styled.button`
         `}
 `;
 
-const MoreWrapper = styled.div`
+const MoreWrapper = styled.button`
   display: flex;
   height: 100px;
   flex-direction: column;
+  background-color: transparent;
+  border: none;
 `;
 
 const ButtonIcon = (props) => (
   <>
     {!props.moreIcon && (
-      <Icon
+      <IconBtn
+        onClick={props.onClick}
         icon={props.icon}
         playingIcon={props.playingIcon}
         notPlayingIcon={props.notPlayingIcon}
@@ -62,10 +66,10 @@ const ButtonIcon = (props) => (
       />
     )}
     {props.moreIcon && (
-      <MoreWrapper>
-        <Icon icon={props.icon} moreIcon={props.moreIcon} />
-        <Icon icon={props.icon} moreIcon={props.moreIcon} />
-        <Icon icon={props.icon} moreIcon={props.moreIcon} />
+      <MoreWrapper onClick={props.onClick}>
+        <IconBtn icon={props.icon} moreIcon={props.moreIcon} />
+        <IconBtn icon={props.icon} moreIcon={props.moreIcon} />
+        <IconBtn icon={props.icon} moreIcon={props.moreIcon} />
       </MoreWrapper>
     )}
   </>

@@ -12,6 +12,7 @@ const Button = styled.button`
   font-size: ${({ theme }) => theme.fontSize.m};
   color: ${({ theme }) => theme.white};
   text-transform: uppercase;
+  outline: none;
 `;
 
 export default Button;

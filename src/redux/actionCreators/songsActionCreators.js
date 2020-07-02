@@ -1,5 +1,6 @@
-import { CHANGE_SONG, PLAY, PAUSE } from '../actions/songsActions';
+import { CHANGE_SONG, PLAY, PAUSE, CHANGE_REPEAT } from '../actions/songsActions';
 
-export const changeSong = (songId) => ({ type: CHANGE_SONG, payload: { songId } });
-export const changeSong = () => ({ type: PLAY });
-export const changeSong = () => ({ type: PAUSE });
+export const changeSong = (songIndex) => ({ type: CHANGE_SONG, payload: { songIndex } });
+export const play = () => ({ type: PLAY });
+export const pause = () => ({ type: PAUSE });
+export const changeRepeat = () => ({ type: CHANGE_REPEAT });

@@ -1,21 +1,23 @@
-import { CHANGE_SONG, PLAY, PAUSE } from '../actions/songsActions';
+import { CHANGE_SONG, PLAY, PAUSE, CHANGE_REPEAT } from '../actions/songsActions';
 import { songs } from '../../tempData/songs';
+
+const songList = Object.values(songs).map((s) => s.id);
 
 const initialState = {
   byId: songs,
-  activeSong: Obiect.values(songs)[0].id,
+  allIds: songList,
+  activeSongIndex: 0,
   isPlaying: false,
+  repeat: false,
 };
 
-export default function (state = initialState, action) {
+export default (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_SONG:
-      if (state.byId.hasOwnProperty(action.payload.songId)) {
-        return {
-          ...state,
-          activeSong: state.byId[action.payload.songId],
-        };
-      }
+      return {
+        ...state,
+        activeSongIndex: action.payload.songIndex,
+      };
       return state;
     case PLAY:
       return {
@@ -28,7 +30,13 @@ export default function (state = initialState, action) {
         isPlaying: false,
       };
 
+    case CHANGE_REPEAT:
+      return {
+        ...state,
+        repeat: !state.repeat,
+      };
+
     default:
       return state;
   }
-}
+};

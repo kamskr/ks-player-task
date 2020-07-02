@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import ButtonIcon from '../../atoms/ButtonIcon/ButtonIcon';
@@ -9,6 +9,14 @@ import NextIcon from '../../../assets/icons/next_ico.svg';
 import PreviousIcon from '../../../assets/icons/previous_ico.svg';
 import RepeatIcon from '../../../assets/icons/repeat_ico.svg';
 import ShuffleIcon from '../../../assets/icons/shuffle_ico.svg';
+//redux
+import { connect } from 'react-redux';
+import {
+  changeSong,
+  play,
+  pause,
+  changeRepeat,
+} from '../../../redux/actionCreators/songsActionCreators';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -16,23 +24,67 @@ const StyledWrapper = styled.div`
   align-items: center;
 `;
 
-const MediaControllBar = ({ isPlaying }) => (
-  <StyledWrapper>
-    <ButtonIcon icon={ShuffleIcon} />;
-    <ButtonIcon icon={PreviousIcon} />;
-    {isPlaying === 'true' && <ButtonIcon icon={PlayActiveIcon} playingIcon />}
-    {isPlaying === 'false' && <ButtonIcon icon={PlayInactiveIcon} notPlayingIcon />}
-    <ButtonIcon icon={NextIcon} />;
-    <ButtonIcon icon={RepeatIcon} />;
-  </StyledWrapper>
-);
-
-MediaControllBar.propTypes = {
-  isPlaying: PropTypes.oneOf(['true', 'false']),
+const getRandomSong = (current, length) => {
+  if (length < 2) return current;
+  const index = Math.floor(Math.random() * length);
+  return index !== current ? index : getRandomSong(current, length);
 };
 
-MediaControllBar.defaultProps = {
-  isPlaying: 'false',
+const MediaControllBar = ({
+  isPlaying,
+  activeSongIndex,
+  changeSong,
+  play,
+  pause,
+  songs,
+  changeRepeat,
+}) => {
+  const shuffle = useCallback(() => changeSong(getRandomSong(activeSongIndex, songs.length)), [
+    activeSongIndex,
+    songs.length,
+    changeSong,
+  ]);
+
+  const playNext = useCallback(() => {
+    let nextSongIndex = 0;
+    if (!(activeSongIndex + 1 >= songs.length)) {
+      nextSongIndex = activeSongIndex + 1;
+    }
+    changeSong(nextSongIndex);
+  }, [songs, activeSongIndex, changeSong]);
+
+  const playPrevious = useCallback(() => {
+    let nextSongIndex = songs.length - 1;
+    if (!(activeSongIndex - 1 < 0)) {
+      nextSongIndex = activeSongIndex - 1;
+    }
+    changeSong(nextSongIndex);
+  }, [songs, activeSongIndex, changeSong]);
+
+  return (
+    <StyledWrapper>
+      <ButtonIcon icon={ShuffleIcon} onClick={shuffle} />
+      <ButtonIcon icon={PreviousIcon} onClick={playPrevious} />
+      {isPlaying && <ButtonIcon icon={PlayActiveIcon} onClick={pause} playingIcon />}
+      {!isPlaying && <ButtonIcon icon={PlayInactiveIcon} onClick={play} notPlayingIcon />}
+      <ButtonIcon icon={NextIcon} onClick={playNext} />
+      <ButtonIcon icon={RepeatIcon} onClick={changeRepeat} />
+    </StyledWrapper>
+  );
 };
 
-export default MediaControllBar;
+const mapDispatchToProps = {
+  changeSong,
+  play,
+  pause,
+  changeRepeat,
+};
+
+const mapStateToProps = (state) => ({
+  songs: state.songs.allIds,
+  activeSongIndex: state.songs.activeSongIndex,
+  isPlaying: state.songs.isPlaying,
+  repeat: state.songs.repeat,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MediaControllBar);
