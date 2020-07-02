@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Paragraph = styled.h1`
+const Paragraph = styled.p`
   font-size: ${({ theme }) => theme.fontSize.s};
   font-weight: ${({ theme }) => theme.light};
   color: ${({ theme, color }) => theme[color]};
