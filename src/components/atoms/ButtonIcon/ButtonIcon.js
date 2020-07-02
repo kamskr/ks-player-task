@@ -37,6 +37,12 @@ const Icon = styled.button`
         background-size: 100%;
         background-color: transparent;
       `}
+      ${({ backIcon }) =>
+        backIcon &&
+        css`
+          width: 20px;
+          height: 30px;
+        `}
 `;
 
 const MoreWrapper = styled.div`
@@ -52,6 +58,7 @@ const ButtonIcon = (props) => (
         icon={props.icon}
         playingIcon={props.playingIcon}
         notPlayingIcon={props.notPlayingIcon}
+        backIcon={props.backIcon}
       />
     )}
     {props.moreIcon && (
