@@ -5,6 +5,5 @@ import SongSlider from './SongSlider';
 export default {
   title: 'SongSlider',
 };
-
 export const songSlider = () => <SongSlider />;
 // Knobs as dynamic variables.
