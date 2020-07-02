@@ -4,7 +4,8 @@ import React, { Component, Fragment } from 'react';
 const IconBtn = styled.button`
   min-width: 20px;
   height: 30px;
-  margin: 0 20px;
+  margin: 0 15px;
+  
   background-image: url(${({ icon }) => icon});
   background-repeat: no-repeat;
   background-size: 100%;
@@ -12,6 +13,11 @@ const IconBtn = styled.button`
   background-color: transparent;
   border: none;
   outline: none;
+  :active {
+  transform: translate(10px, 10px);
+  -webkit-transform: translate(0px, 19px);
+  }
+
   ${({ playingIcon }) =>
     playingIcon &&
     css`
@@ -34,42 +40,39 @@ const IconBtn = styled.button`
     ${({ moreIcon }) =>
       moreIcon &&
       css`
-        min-width: 10px;
-        background-size: 100%;
+        padding: 0px;
+        background-size: 15%;
         background-color: transparent;
       `}
-      ${({ backIcon }) =>
-        backIcon &&
+    ${({ backIcon }) =>
+      backIcon &&
+      css`
+        min-width: 10px;
+        height: 30px;
+      `} 
+      ${({ playlist }) =>
+        playlist &&
         css`
-          min-width: 20px;
-          height: 30px;
+          margin: 0 40px;
         `}
 `;
 
 const MoreWrapper = styled.button`
   display: flex;
-  height: 100px;
+  height: 40px;
   flex-direction: column;
   background-color: transparent;
   border: none;
 `;
 
-const ButtonIcon = (props) => (
+const ButtonIcon = ({ onClick, icon, ...rest }) => (
   <>
-    {!props.moreIcon && (
-      <IconBtn
-        onClick={props.onClick}
-        icon={props.icon}
-        playingIcon={props.playingIcon}
-        notPlayingIcon={props.notPlayingIcon}
-        backIcon={props.backIcon}
-      />
-    )}
-    {props.moreIcon && (
-      <MoreWrapper onClick={props.onClick}>
-        <IconBtn icon={props.icon} moreIcon={props.moreIcon} />
-        <IconBtn icon={props.icon} moreIcon={props.moreIcon} />
-        <IconBtn icon={props.icon} moreIcon={props.moreIcon} />
+    {!rest.moreIcon && <IconBtn onClick={onClick} icon={icon} {...rest} />}
+    {rest.moreIcon && (
+      <MoreWrapper onClick={onClick}>
+        <IconBtn icon={icon} {...rest} />
+        <IconBtn icon={icon} {...rest} />
+        <IconBtn icon={icon} {...rest} />
       </MoreWrapper>
     )}
   </>

@@ -9,6 +9,7 @@ import SongDisplay from '../../components/molecules/SongDisplay/SongDisplay';
 import SoundWave from '../../components/atoms/SoundWave/SoundWave';
 import ProgressSection from '../../components/molecules/ProgressSection/ProgressSection';
 import Player from '../../components/organisms/Player/Player';
+import Main from '../../templates/Main/Main';
 //redux
 import { Provider } from 'react-redux';
 import store from '../../redux/store';
@@ -18,9 +19,7 @@ const Root = () => (
     <GlobalStyle />
     <ThemeProvider theme={theme}>
       <Provider store={store}>
-        <div>
-          <Player />
-        </div>
+        <Main />
       </Provider>
     </ThemeProvider>
   </div>

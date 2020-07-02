@@ -11,8 +11,12 @@ import { connect } from 'react-redux';
 
 const StyledWrapper = styled.div`
   display: flex;
-  width: 100%;
+  width: 100vw;
+  height: 100%;
+  margin-right: -20px;
   background-color: ${({ theme }) => theme.white};
+  align-items: center;
+  justify-content: center;
 `;
 const Next = styled.span`
   font-size: ${({ theme }) => theme.fontSize.s};
@@ -25,12 +29,13 @@ const InnerSectionWrapper = styled.div`
   flex-direction: column;
   margin: auto 20px auto 0;
 `;
+const IconWrapper = styled.div``;
 
 const BottomNavbar = ({ songsById, songs, activeSongIndex }) => {
   let nextSongIndex = activeSongIndex + 1 >= songs.length ? 0 : activeSongIndex + 1;
   return (
     <StyledWrapper>
-      <ButtonIcon icon={PlaylistIcon} />
+      <ButtonIcon icon={PlaylistIcon} playlist />
       <InnerSectionWrapper>
         <Next>NEXT</Next>
         <SongDisplay

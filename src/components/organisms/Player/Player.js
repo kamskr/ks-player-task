@@ -9,11 +9,11 @@ import ProgressSection from '../../molecules/ProgressSection/ProgressSection';
 import { connect } from 'react-redux';
 
 const StyledWrapper = styled.div`
-  background-color: ${({ theme }) => theme.background};
   display: flex;
   flex-direction: column;
 `;
 const InfoWrapper = styled.div`
+  margin-top: -30px;
   text-align: center;
 `;
 const Player = ({ song }) => (

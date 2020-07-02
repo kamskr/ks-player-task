@@ -11,11 +11,11 @@ import { changeSong } from '../../../redux/actionCreators/songsActionCreators';
 
 const StyledWrapper = styled.div`
   width: 100vw;
+  margin-right: -100p;
 `;
 const CoverWrapper = styled.div`
   height: 300px;
   margin: auto;
-  background-color: ${({ theme }) => theme.background};
 `;
 
 const SongSlider = ({ songsIds, songsById, changeSong, activeSongIndex }) => {
@@ -27,6 +27,7 @@ const SongSlider = ({ songsIds, songsById, changeSong, activeSongIndex }) => {
     wipeToSlide: true,
     focusOnSelect: true,
     beforeChange: null,
+    arrows: false,
     afterChange: (current) => changeSong(current),
   };
   const ref = useRef();

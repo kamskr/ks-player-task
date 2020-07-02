@@ -1,35 +1,31 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import SongSlider from '../../molecules/SongSlider/SongSlider';
-import Heading from '../../atoms/Heading/Heading';
-import MediaControllBar from '../../molecules/MediaControllBar/MediaControllBar';
-import ProgressSection from '../../molecules/ProgressSection/ProgressSection';
-
-import { connect } from 'react-redux';
+import TopNavbar from '../../components/organisms/TopNavbar/TopNavbar';
+import Player from '../../components/organisms/Player/Player';
+import BottomNavbar from '../../components/organisms/BottomNavbar/BottomNavbar';
+import bacgroundImage from '../../assets/bg_image.jpg';
 
 const StyledWrapper = styled.div`
-  background-color: ${({ theme }) => theme.background};
+  background-image: url(${bacgroundImage});
+  background-image: linear-gradient(
+      to bottom,
+      ${({ theme }) => theme.backgroundLight} 20%,
+      ${({ theme }) => theme.background} 30%
+    ),
+    url(${bacgroundImage});
+  background-repeat: no-repeat;
+  background-size: 100% auto;
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  margin-right: -30px;
 `;
-const InfoWrapper = styled.div`
-  text-align: center;
-`;
-const Player = ({ song }) => (
+const Main = () => (
   <StyledWrapper>
-    <SongSlider />
-    <InfoWrapper>
-      <Heading bold>{song.name}</Heading>
-      <Heading secondary>{song.artist}</Heading>
-    </InfoWrapper>
-    <MediaControllBar />
-    <ProgressSection />
+    <TopNavbar navType="main" />
+    <Player />
+    <BottomNavbar />
   </StyledWrapper>
 );
 
-const mapStateToProps = (state) => ({
-  song: state.songs.byId[state.songs.allIds[state.songs.activeSongIndex]],
-});
-
-export default connect(mapStateToProps)(Player);
+export default Main;

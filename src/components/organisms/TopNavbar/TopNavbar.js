@@ -14,7 +14,9 @@ import { compose } from 'redux';
 import { play, pause } from '../../../redux/actionCreators/songsActionCreators';
 
 const StyledWrapper = styled.div`
-  width: 700px;
+  padding-top: 20px;
+  width: 100vw;
+  border: none;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -44,12 +46,11 @@ const InnerCenterWrapperPlaylist = styled.div`
     margin: 5px 0;
   }
 `;
-
 const InnerRightWrapper = styled.div`
   margin-left: auto;
 `;
 
-const TopNavbar = ({ isPlaying, navType }) => (
+const TopNavbar = ({ isPlaying, navType, song }) => (
   <StyledWrapper>
     <InnerLeftWrapper>
       <ButtonIcon icon={BackIcon} backIcon />;
@@ -57,8 +58,10 @@ const TopNavbar = ({ isPlaying, navType }) => (
     <InnerCenterWrapperMain>
       {navType === 'main' && (
         <>
-          <Heading secondary>Album</Heading>
-          <Heading>Unreleased</Heading>
+          <Heading fontSize="s" secondary>
+            Album
+          </Heading>
+          <Heading fontSize="m">{song.album}</Heading>
         </>
       )}
     </InnerCenterWrapperMain>
@@ -66,7 +69,7 @@ const TopNavbar = ({ isPlaying, navType }) => (
       {navType === 'playlist' && (
         <>
           <Heading bold>Unreleased</Heading>
-          <Heading secondary>Artist</Heading>
+          <Heading secondary>{song.album}</Heading>
         </>
       )}
     </InnerCenterWrapperPlaylist>
@@ -89,5 +92,6 @@ const mapDispatchToProps = {
 
 const mapStateToProps = (state) => ({
   isPlaying: state.songs.isPlaying,
+  song: state.songs.byId[state.songs.allIds[state.songs.activeSongIndex]],
 });
 export default connect(mapStateToProps, mapDispatchToProps)(TopNavbar);
