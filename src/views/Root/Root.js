@@ -2,14 +2,14 @@ import React, { Fragment } from 'react';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from '../../theme/GlobalStyle';
 import { theme } from '../../theme/mainTheme';
-import SoundWave from '../../components/atoms/SoundWave/SoundWave';
+import SongSlider from '../../components/molecules/SongSlider/SongSlider';
 
 const Root = () => (
   <div>
     <GlobalStyle />
     <ThemeProvider theme={theme}>
       <Fragment>
-        <SoundWave />
+        <SongSlider />
       </Fragment>
     </ThemeProvider>
   </div>
