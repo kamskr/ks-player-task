@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import React, { Component, Fragment } from 'react';
 
 const IconBtn = styled.button`
-  width: 30px;
+  min-width: 30px;
   height: 67px;
   margin: 0 20px;
   background-image: url(${({ icon }) => icon});
@@ -16,7 +16,7 @@ const IconBtn = styled.button`
     playingIcon &&
     css`
       margin: 0;
-      width: 204px;
+      min-width: 204px;
       height: 204px;
       background-size: 100%;
       background-color: transparent;
@@ -26,7 +26,7 @@ const IconBtn = styled.button`
     notPlayingIcon &&
     css`
       margin: 0 40px;
-      width: 124px;
+      min-width: 124px;
       height: 124px;
       background-size: 100%;
       background-color: transparent;
@@ -34,14 +34,14 @@ const IconBtn = styled.button`
     ${({ moreIcon }) =>
       moreIcon &&
       css`
-        width: 10px;
+        min-width: 10px;
         background-size: 100%;
         background-color: transparent;
       `}
       ${({ backIcon }) =>
         backIcon &&
         css`
-          width: 20px;
+          min-width: 20px;
           height: 30px;
         `}
 `;

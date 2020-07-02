@@ -1,68 +1,61 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import Cover from '../../atoms/Cover/Cover';
 //slider
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-//covers
-import Cover1 from '../../../assets/covers/cover.png';
-import Cover2 from '../../../assets/covers/cover-1.png';
-import Unreleased_cover from '../../../assets/covers/unreleased_cover.png';
+//redux
+import { connect } from 'react-redux';
+import { changeSong } from '../../../redux/actionCreators/songsActionCreators';
 
 const StyledWrapper = styled.div`
-  .slider-active > div {
-    -webkit-transform: scale(2.5);
-    -moz-transform: scale(2.5);
-    -o-transform: scale(2.5);
-    -ms-transform: scale(2.5);
-    transform: scale(2.5);
-  }
+  width: 100vw;
+  height: 100vh;
 `;
 const CoverWrapper = styled.div`
   height: 300px;
+  margin: auto;
   background-color: ${({ theme }) => theme.background};
-  position: relative;
 `;
 
-export default class SongSlider extends Component {
-  state = {
-    activeSlide: 1,
-    activeSlide2: 0,
+const SongSlider = ({ songsIds, songsById, changeSong, activeSongIndex }) => {
+  const settings = {
+    centerMode: true,
+    infinite: true,
+    centerPadding: '25%',
+    slidesToShow: 1,
+    wipeToSlide: true,
+    focusOnSelect: true,
+    beforeChange: null,
+    afterChange: (current) => changeSong(current),
   };
-  render() {
-    const settings = {
-      centerMode: true,
-      infinite: true,
-      centerPadding: '25%',
-      slidesToShow: 1,
-      wipeToSlide: true,
-      focusOnSelect: true,
-      beforeChange: (current, next) => this.setState({ activeSlide: next }),
-      afterChange: (current) => this.setState({ activeSlide2: current }),
-    };
 
-    return (
-      <StyledWrapper>
-        <p>
-          BeforeChange activeSlide: <strong>{this.state.activeSlide}</strong>
-        </p>
-        <p>
-          AfterChange activeSlide: <strong>{this.state.activeSlide2}</strong>
-        </p>
-        <Slider {...settings}>
-          <CoverWrapper>
-            <Cover coverImage={Unreleased_cover} active />
+  return (
+    <StyledWrapper>
+      <Slider {...settings}>
+        {songsIds.map((id, index) => (
+          <CoverWrapper key={id + '-song'}>
+            <Cover
+              coverImageUrl={window.location.href + songsById[id].cover}
+              active={index === activeSongIndex}
+            />
           </CoverWrapper>
-          <CoverWrapper>
-            <Cover coverImage={Cover1} />
-          </CoverWrapper>
-          <CoverWrapper>
-            <Cover coverImage={Cover2} />
-          </CoverWrapper>
-        </Slider>
-      </StyledWrapper>
-    );
-  }
-}
+        ))}
+      </Slider>
+      <p>Text</p>
+    </StyledWrapper>
+  );
+};
+
+const mapDispatchToProps = {
+  changeSong,
+};
+
+const mapStateToProps = (state) => ({
+  songsById: state.songs.byId,
+  songsIds: state.songs.allIds,
+  activeSongIndex: state.songs.activeSongIndex,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SongSlider);

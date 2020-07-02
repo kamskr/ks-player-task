@@ -4,17 +4,14 @@ const Cover = styled.div`
   width: 140px;
   height: 140px;
   border-radius: 50%;
-  background-image: url(${({ coverImage }) => coverImage});
+  background-image: url(${({ coverImageUrl }) => coverImageUrl});
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
   background-color: transparent;
   border: none;
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 150px auto 0 auto;
+  transform: translate(0%, -50%);
 
   ${({ active }) =>
     active &&

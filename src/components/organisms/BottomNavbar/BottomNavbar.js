@@ -11,11 +11,18 @@ import { connect } from 'react-redux';
 
 const StyledWrapper = styled.div`
   display: flex;
+  width: 100%;
 `;
-
+const Next = styled.span`
+  font-size: ${({ theme }) => theme.fontSize.s};
+  font-weight: ${({ theme }) => theme.light};
+  color: ${({ theme }) => theme.grey};
+`;
 const InnerSectionWrapper = styled.div`
   flex: 1;
-  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  margin: auto 20px auto 0;
 `;
 
 const BottomNavbar = ({ songsById, songs, activeSongIndex }) => {
@@ -24,7 +31,7 @@ const BottomNavbar = ({ songsById, songs, activeSongIndex }) => {
     <StyledWrapper>
       <ButtonIcon icon={PlaylistIcon} />
       <InnerSectionWrapper>
-        <Paragraph color="grey">NEXT</Paragraph>
+        <Next>NEXT</Next>
         <SongDisplay
           songTitle={songsById[songs[nextSongIndex]].name}
           duration={songsById[songs[nextSongIndex]].duration}

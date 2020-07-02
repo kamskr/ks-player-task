@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import styled, { css } from 'styled-components';
+import styled, { css, withTheme } from 'styled-components';
 import Paragraph from '../../atoms/Paragraph/Paragraph';
 //icons
 import { connect } from 'react-redux';
@@ -8,42 +8,45 @@ import { connect } from 'react-redux';
 const SongDisplayStyle = styled.div`
   display: flex;
   flex-direction: row;
+
+  min-width: 0;
+`;
+
+const Dots = styled.svg`
+  width: 100%;
+  height: 5px;
+  margin: auto 10px 2px 10px;
+`;
+
+const Span = styled.span`
+  font-size: ${({ theme }) => theme.fontSize.s};
+  font-weight: ${({ theme }) => theme.light};
+  color: ${({ theme }) => theme.black};
   white-space: nowrap;
-
-  p {
-    margin-top: -10px;
-    margin-bottom: -4px;
-  }
 `;
 
-const Dots = styled.span`
-  flex: 1;
-  background-image: linear-gradient(
-    to right,
-    ${({ theme }) => theme.grey} 40%,
-    rgba(255, 255, 255, 0) 10%
-  );
-  margin: 0 10px;
-  background-position: bottom;
-  background-size: 3px 1px;
-  background-repeat: repeat-x;
-`;
 const SongDisplay = (props) => (
   <SongDisplayStyle>
-    <Paragraph color="black">{props.songTitle}</Paragraph>
-    <Dots />
-    <Paragraph color="grey">
+    <Span>{props.songTitle}</Span>
+    <Dots height="5px">
+      <line
+        x1="0"
+        x2="100%"
+        y1="2"
+        y2="2"
+        stroke={`${props.theme.grey}`}
+        stroke-width="1"
+        stroke-linecap="round"
+        stroke-dasharray="1, 10"
+      />
+    </Dots>
+
+    <Span color="grey" style={{ color: `${props.theme.grey}` }}>
       {moment({ minutes: Math.floor(props.duration / 60), seconds: props.duration % 60 }).format(
         'm:ss',
       )}
-    </Paragraph>
+    </Span>
   </SongDisplayStyle>
 );
 
-const mapStateToProps = (state) => ({
-  songs: state.songs.allIds,
-  activeSongIndex: state.songs.activeSongIndex,
-  isPlaying: state.songs.isPlaying,
-  repeat: state.songs.repeat,
-});
-export default SongDisplay;
+export default withTheme(SongDisplay);

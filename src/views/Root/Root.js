@@ -4,6 +4,8 @@ import GlobalStyle from '../../theme/GlobalStyle';
 import { theme } from '../../theme/mainTheme';
 import SongSlider from '../../components/molecules/SongSlider/SongSlider';
 import MediaControllBar from '../../components/molecules/MediaControllBar/MediaControllBar';
+import BottomNavbar from '../../components/organisms/BottomNavbar/BottomNavbar';
+import SongDisplay from '../../components/molecules/SongDisplay/SongDisplay';
 //redux
 import { Provider } from 'react-redux';
 import store from '../../redux/store';
@@ -13,9 +15,9 @@ const Root = () => (
     <GlobalStyle />
     <ThemeProvider theme={theme}>
       <Provider store={store}>
-        <Fragment>
-          <MediaControllBar />
-        </Fragment>
+        <div>
+          <SongSlider />
+        </div>
       </Provider>
     </ThemeProvider>
   </div>

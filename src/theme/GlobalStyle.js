@@ -7,14 +7,18 @@ const GlobalStyle = createGlobalStyle`
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
-
-    html {
+    html{
         font-size: 62.5%;
     }
-
     body {
         font-size: 1.6rem; // happy rems
         font-family: 'Montserrat', sans-serif;
+    }
+
+    html, body {
+        margin: 0;
+        padding: 0;
+        display: flex;
     }
 `;
 
