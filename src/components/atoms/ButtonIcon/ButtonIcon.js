@@ -14,8 +14,8 @@ const IconBtn = styled.button`
   border: none;
   outline: none;
   :active {
-  transform: translate(10px, 10px);
-  -webkit-transform: translate(0px, 19px);
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);;
   }
 
   ${({ playingIcon }) =>
@@ -63,6 +63,10 @@ const MoreWrapper = styled.button`
   flex-direction: column;
   background-color: transparent;
   border: none;
+  :active {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+  }
 `;
 
 const ButtonIcon = ({ onClick, icon, ...rest }) => (
