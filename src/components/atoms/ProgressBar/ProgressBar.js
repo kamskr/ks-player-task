@@ -9,7 +9,7 @@ const BarContainer = styled.div`
 `;
 
 const ActiveBar = styled.input`
-  transition: 0.3s;
+  transition: 3s;
   -webkit-appearance: none;
   position: absolute;
   background: ${({ theme }) => theme.progressBar};
@@ -31,22 +31,25 @@ const ActiveBar = styled.input`
   ::-webkit-slider-runnable-track {
   }
   :focus::-webkit-slider-runnable-track {
+    background: ${({ theme }) => theme.progressBar};
+    height: 8px;
+    border-radius: 6px;
+    width: 99%;
   }
 `;
-// const BackgroundBar = styled.div`
-//   position: absolute;
-//   background: ${({ theme }) => theme.progressBar};
-//   height: 2px;
-//   width: 100%;
-//   text-align: center;
-//   top: -1px;
-// `;
+const BackgroundBar = styled.div`
+  position: absolute;
+  background: ${({ theme }) => theme.progressBar};
+  height: 2px;
+  width: 100%;
+  text-align: center;
+  top: -4px;
+`;
 
 const Dot = styled.div`
   background: ${({ theme }) => theme.progressBar};
   position: absolute;
   right: 0;
-
   height: 8px;
   width: 8px;
   top: -4px;
@@ -63,7 +66,6 @@ const ProgressBar = ({ progress, onRewind }) => (
       step="1"
       onChange={({ target }) => onRewind(parseInt(target.value))}
     />
-    {/* <BackgroundBar /> */}
     <Dot />
   </BarContainer>
 );

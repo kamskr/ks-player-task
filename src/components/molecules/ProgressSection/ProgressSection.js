@@ -73,7 +73,7 @@ const ProgressSection = ({ songsById, songs, activeSongIndex, isPlaying, repeat,
         </Span>
       </ProgressBarWrapper>
 
-      <SoundWave progress={percent} />
+      <SoundWave progress={percent} isPlaying={isPlaying} />
     </StyledWrapper>
   );
 };
