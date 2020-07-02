@@ -10,43 +10,32 @@ import PlaylistIcon from '../../../assets/icons/playlist_ico.svg';
 import { connect } from 'react-redux';
 
 const StyledWrapper = styled.div`
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-`;
-const LeftSection = styled.div`
-  grid-column: 1/1;
-`;
-const RightSection = styled.div`
-  grid-column: 2/10;
-`;
-const InnerSectionWrapperTop = styled.div``;
-const InnerSectionWrapperBottom = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  white-space: nowrap;
 `;
 
-const BottomNavbar = () => ({
-  render() {
-    return (
-      <StyledWrapper>
-        <LeftSection>
-          <ButtonIcon icon={PlaylistIcon} />
-        </LeftSection>
-        <RightSection>
-          <InnerSectionWrapperTop>
-            <Paragraph color="grey">NEXT</Paragraph>
-          </InnerSectionWrapperTop>
-          <SongDisplay songTitle="test" duration={1234} />
-        </RightSection>
-      </StyledWrapper>
-    );
-  },
-});
+const InnerSectionWrapper = styled.div`
+  flex: 1;
+  margin-right: 20px;
+`;
+
+const BottomNavbar = ({ songsById, songs, activeSongIndex }) => {
+  let nextSongIndex = activeSongIndex + 1 >= songs.length ? 0 : activeSongIndex + 1;
+  return (
+    <StyledWrapper>
+      <ButtonIcon icon={PlaylistIcon} />
+      <InnerSectionWrapper>
+        <Paragraph color="grey">NEXT</Paragraph>
+        <SongDisplay
+          songTitle={songsById[songs[nextSongIndex]].name}
+          duration={songsById[songs[nextSongIndex]].duration}
+        />
+      </InnerSectionWrapper>
+    </StyledWrapper>
+  );
+};
 
 const mapStateToProps = (state) => ({
+  songsById: state.songs.byId,
   songs: state.songs.allIds,
   activeSongIndex: state.songs.activeSongIndex,
   isPlaying: state.songs.isPlaying,

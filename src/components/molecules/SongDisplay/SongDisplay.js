@@ -21,13 +21,13 @@ const Dots = styled.span`
   background-image: linear-gradient(
     to right,
     ${({ theme }) => theme.grey} 40%,
-    rgba(255, 255, 255, 0) 20%
+    rgba(255, 255, 255, 0) 10%
   );
+  margin: 0 10px;
   background-position: bottom;
   background-size: 3px 1px;
   background-repeat: repeat-x;
 `;
-
 const SongDisplay = (props) => (
   <SongDisplayStyle>
     <Paragraph color="black">{props.songTitle}</Paragraph>
