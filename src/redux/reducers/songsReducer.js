@@ -1,4 +1,4 @@
-import { CHANGE_SONG, PLAY, PAUSE, CHANGE_REPEAT, REWIND } from '../actions/songsActions';
+import { CHANGE_SONG, PLAY, PAUSE, CHANGE_REPEAT } from '../actions/songsActions';
 import { songs } from '../../tempData/songs';
 
 const songList = Object.values(songs).map((s) => s.id);
@@ -18,7 +18,6 @@ export default (state = initialState, action) => {
         ...state,
         activeSongIndex: action.payload.songIndex,
       };
-      return state;
     case PLAY:
       return {
         ...state,

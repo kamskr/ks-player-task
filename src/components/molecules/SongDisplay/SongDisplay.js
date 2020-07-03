@@ -1,9 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import styled, { css, withTheme } from 'styled-components';
-import Paragraph from '../../atoms/Paragraph/Paragraph';
-//icons
-import { connect } from 'react-redux';
+import styled, { withTheme } from 'styled-components';
 
 const SongDisplayStyle = styled.div`
   display: flex;

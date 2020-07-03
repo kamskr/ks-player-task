@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components';
-import React, { Component } from 'react';
+import styled from 'styled-components';
+import React from 'react';
 
 const BarContainer = styled.div`
   flex: 1;
@@ -37,14 +37,14 @@ const ActiveBar = styled.input`
     width: 99%;
   }
 `;
-const BackgroundBar = styled.div`
-  position: absolute;
-  background: ${({ theme }) => theme.progressBar};
-  height: 2px;
-  width: 100%;
-  text-align: center;
-  top: -4px;
-`;
+// const BackgroundBar = styled.div`
+//   position: absolute;
+//   background: ${({ theme }) => theme.progressBar};
+//   height: 2px;
+//   width: 100%;
+//   text-align: center;
+//   top: -4px;
+// `;
 
 const Dot = styled.div`
   background: ${({ theme }) => theme.progressBar};

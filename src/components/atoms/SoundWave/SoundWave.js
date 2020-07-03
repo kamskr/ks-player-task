@@ -1,11 +1,14 @@
-import styled, { css, withTheme } from 'styled-components';
-import React, { useRef, useEffect } from 'react';
+import styled, { withTheme } from 'styled-components';
+import React, { useRef, useEffect, useMemo } from 'react';
 
 const Canvas = styled.canvas`
   width: 100%;
   height: 50px;
 `;
-var speed = 3;
+let speed = 3;
+let started = false;
+let currentProgress;
+let playing;
 
 const requestAnimationFrame =
   window.requestAnimationFrame ||
@@ -13,7 +16,7 @@ const requestAnimationFrame =
   window.webkitRequestAnimationFrame ||
   window.msRequestAnimationFrame;
 
-const start = (current, theme, progress) => {
+const start = (current, theme) => {
   let lineArray = [];
   const ctx = current.getContext('2d');
   const width = current.width;
@@ -28,17 +31,21 @@ const start = (current, theme, progress) => {
       direction: speed - 1 + Math.random() * speed,
     });
   }
-
-  draw(lineArray, width, height, ctx, progress);
+  started = !started;
+  draw(lineArray, width, height, ctx);
 };
 
-const draw = (lineArray, width, height, ctx, progress) => {
+const draw = (lineArray, width, height, ctx) => {
+  if (!playing) {
+    requestAnimationFrame(() => draw(lineArray, width, height, ctx));
+    return;
+  }
   ctx.clearRect(0, 0, width, height);
   for (let line of lineArray) {
     if (line.y >= height / 1.5 || line.y <= 0) {
       line.direction = -line.direction;
     }
-    if (line.x <= width * (progress / 100)) {
+    if (line.x <= width * (currentProgress / 100)) {
       ctx.beginPath();
       ctx.lineCap = 'round';
       ctx.moveTo(line.x, height);
@@ -47,14 +54,19 @@ const draw = (lineArray, width, height, ctx, progress) => {
     }
   }
 
-  requestAnimationFrame(() => draw(lineArray, width, height, ctx, progress));
+  requestAnimationFrame(() => draw(lineArray, width, height, ctx));
 };
 
-const SoundWave = ({ progress, theme }) => {
+const SoundWave = ({ progress, theme, isPlaying }) => {
   const ref = useRef(null);
   useEffect(() => {
-    start(ref.current, theme, progress);
+    if (!started) {
+      start(ref.current, theme);
+    }
   });
+
+  playing = isPlaying;
+  currentProgress = progress;
 
   return <Canvas ref={ref} />;
 };

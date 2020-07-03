@@ -1,6 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import ButtonIcon from '../../atoms/ButtonIcon/ButtonIcon';
 import Heading from '../../atoms/Heading/Heading';
 //icons
@@ -10,7 +9,6 @@ import PlayInactiveIcon from '../../../assets/icons/Play_inactive.png';
 import MoreIcon from '../../../assets/icons/more_ico.svg';
 //redux
 import { connect } from 'react-redux';
-import { compose } from 'redux';
 import { play, pause } from '../../../redux/actionCreators/songsActionCreators';
 
 const StyledWrapper = styled.div`

@@ -1,5 +1,5 @@
 import React, { useMemo, useEffect, useState, useCallback } from 'react';
-import styled, { css, withTheme } from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 import ProgressBar from '../../atoms/ProgressBar/ProgressBar';
 import SoundWave from '../../atoms/SoundWave/SoundWave';
 import moment from 'moment';
@@ -24,7 +24,10 @@ const Span = styled.span`
 const ProgressSection = ({ songsById, songs, activeSongIndex, isPlaying, repeat, changeSong }) => {
   const [songProgress, setSongProgress] = useState(0);
   const song = songsById[songs[activeSongIndex]];
-  const percent = useMemo(() => (songProgress / song.duration) * 100, [songProgress]);
+  const percent = useMemo(() => (songProgress / song.duration) * 100, [
+    songProgress,
+    song.duration,
+  ]);
   const rewind = useCallback(
     (progress) => {
       const sec = (progress * song.duration) / 100;
@@ -55,7 +58,7 @@ const ProgressSection = ({ songsById, songs, activeSongIndex, isPlaying, repeat,
     }
 
     return () => clearTimeout(timer);
-  }, [songProgress, isPlaying, activeSongIndex, song, songs]);
+  }, [songProgress, isPlaying, activeSongIndex, song, songs, changeSong, repeat]);
 
   return (
     <StyledWrapper>

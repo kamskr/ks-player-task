@@ -1,6 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import SongSlider from '../../molecules/SongSlider/SongSlider';
 import Heading from '../../atoms/Heading/Heading';
 import MediaControllBar from '../../molecules/MediaControllBar/MediaControllBar';

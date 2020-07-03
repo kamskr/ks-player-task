@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import React, { Component, Fragment } from 'react';
+import React from 'react';
 
 const IconBtn = styled.button`
   min-width: 20px;
@@ -59,7 +59,7 @@ const IconBtn = styled.button`
 
 const MoreWrapper = styled.button`
   display: flex;
-  height: 40px;
+  height: 30px;
   flex-direction: column;
   background-color: transparent;
   border: none;

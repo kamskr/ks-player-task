@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import TopNavbar from '../../components/organisms/TopNavbar/TopNavbar';
 import Player from '../../components/organisms/Player/Player';
 import BottomNavbar from '../../components/organisms/BottomNavbar/BottomNavbar';

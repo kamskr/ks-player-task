@@ -1,9 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import ButtonIcon from '../../atoms/ButtonIcon/ButtonIcon';
-import Heading from '../../atoms/Heading/Heading';
-import Paragraph from '../../atoms/Paragraph/Paragraph';
 import SongDisplay from '../../molecules/SongDisplay/SongDisplay';
 //icons
 import PlaylistIcon from '../../../assets/icons/playlist_ico.svg';
@@ -13,6 +10,7 @@ const StyledWrapper = styled.div`
   display: flex;
   width: 100vw;
   height: 100%;
+  min-height: 80px;
   margin-right: -20px;
   background-color: ${({ theme }) => theme.white};
   align-items: center;
@@ -29,7 +27,6 @@ const InnerSectionWrapper = styled.div`
   flex-direction: column;
   margin: auto 20px auto 0;
 `;
-const IconWrapper = styled.div``;
 
 const BottomNavbar = ({ songsById, songs, activeSongIndex }) => {
   let nextSongIndex = activeSongIndex + 1 >= songs.length ? 0 : activeSongIndex + 1;

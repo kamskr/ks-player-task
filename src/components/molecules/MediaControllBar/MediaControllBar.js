@@ -1,6 +1,5 @@
 import React, { useCallback } from 'react';
-import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import ButtonIcon from '../../atoms/ButtonIcon/ButtonIcon';
 //icons
 import PlayActiveIcon from '../../../assets/icons/Play_active.png';
@@ -40,6 +39,7 @@ const MediaControllBar = ({
   pause,
   songs,
   changeRepeat,
+  repeat,
 }) => {
   const shuffle = useCallback(() => changeSong(getRandomSong(activeSongIndex, songs.length)), [
     activeSongIndex,
@@ -48,12 +48,17 @@ const MediaControllBar = ({
   ]);
 
   const playNext = useCallback(() => {
+    console.log(repeat);
+    if (repeat) {
+      shuffle();
+      return;
+    }
     let nextSongIndex = 0;
     if (!(activeSongIndex + 1 >= songs.length)) {
       nextSongIndex = activeSongIndex + 1;
     }
     changeSong(nextSongIndex);
-  }, [songs, activeSongIndex, changeSong]);
+  }, [songs, activeSongIndex, changeSong, repeat, shuffle]);
 
   const playPrevious = useCallback(() => {
     let nextSongIndex = songs.length - 1;
@@ -66,7 +71,7 @@ const MediaControllBar = ({
   console.log('renderuje');
   return (
     <StyledWrapper>
-      <ButtonIcon icon={ShuffleIcon} onClick={shuffle} />
+      <ButtonIcon icon={ShuffleIcon} onClick={changeRepeat} />
       <ButtonIcon icon={PreviousIcon} onClick={playPrevious} />
       {isPlaying && <ButtonIcon icon={PlayActiveIcon} onClick={pause} playingIcon />}
       {!isPlaying && <ButtonIcon icon={PlayInactiveIcon} onClick={play} notPlayingIcon />}
