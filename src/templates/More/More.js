@@ -1,9 +1,7 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
 import TopNavbar from '../../components/organisms/TopNavbar/TopNavbar';
-import Player from '../../components/organisms/Player/Player';
 import BottomNavbar from '../../components/organisms/BottomNavbar/BottomNavbar';
-import bacgroundImage from '../../assets/bg_image.jpg';
 import Cover from '../../components/atoms/Cover/Cover';
 import Heading from '../../components/atoms/Heading/Heading';
 import cover from '../../assets/covers/cover.png';

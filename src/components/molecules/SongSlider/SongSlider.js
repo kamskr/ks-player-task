@@ -16,9 +16,6 @@ const StyledWrapper = styled.div`
   flex: 1;
   margin-top: 50px;
 `;
-const FlexWrapper = styled.div`
-  display: flex;
-`;
 const CoverWrapper = styled.div`
   display: flex;
   flex: 1;

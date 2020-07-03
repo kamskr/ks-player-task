@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const Button = styled.button`
   padding: 0;
@@ -14,7 +13,8 @@ const Button = styled.button`
   text-transform: uppercase;
   outline: none;
   :active {
-    transform: scale(1.1);
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
   }
 `;
 

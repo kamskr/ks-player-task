@@ -3,9 +3,6 @@ import styled, { withTheme } from 'styled-components';
 import TopNavbar from '../../components/organisms/TopNavbar/TopNavbar';
 import SongDisplay from '../../components/molecules/SongDisplay/SongDisplay';
 import Button from '../../components/atoms/Button/Button';
-import cover from '../../assets/covers/cover.png';
-import cover1 from '../../assets/covers/cover-1.png';
-import unreleased from '../../assets/covers/unreleased_cover.png';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import bacgroundImage from '../../assets/bg_image.jpg';
@@ -66,8 +63,6 @@ const ButtonWrapper = styled.div`
 `;
 
 const Playlist = ({ song, activeSongIndex, hide, changeRepeat }) => {
-  const covers = [unreleased, cover, cover1];
-
   return (
     <StyledWrapper>
       <TopNavbar navType="playlist" showLess={hide} />

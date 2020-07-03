@@ -27,6 +27,8 @@ const IconBtn = styled.button`
       background-size: 100%;
       background-color: transparent;
       background-position: left 6px center;
+      transform: scale(0.7);
+      -webkit-transform: scale(0.7);
     `}
   ${({ notPlayingIcon }) =>
     notPlayingIcon &&
