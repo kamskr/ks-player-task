@@ -8,9 +8,17 @@ import cover1 from '../../assets/covers/cover-1.png';
 import unreleased from '../../assets/covers/unreleased_cover.png';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-
+import bacgroundImage from '../../assets/bg_image.jpg';
 const StyledWrapper = styled.div`
-  background-image: ${({ theme }) => theme.backgroundLight};
+  background-image: url(${bacgroundImage});
+  background-image: linear-gradient(
+      to bottom,
+      ${({ theme }) => theme.backgroundLight} 20%,
+      ${({ theme }) => theme.background} 30%
+    ),
+    url(${bacgroundImage});
+  background-repeat: no-repeat;
+  background-size: 100% auto;
   flex-direction: column;
   display: flex;
   position: fixed;
@@ -45,12 +53,12 @@ const PlaylistWrapper = styled.div`
   }
 `;
 
-const More = ({ song, activeSongIndex }) => {
+const More = ({ song, activeSongIndex, hide }) => {
   const covers = [unreleased, cover, cover1];
 
   return (
     <StyledWrapper>
-      <TopNavbar navType="playlist" />
+      <TopNavbar navType="playlist" showLess={hide} />
       <PlaylistWrapper>
         <ol>
           <li>

@@ -15,7 +15,7 @@ const IconBtn = styled.button`
   outline: none;
   :active {
   transform: scale(1.2);
-  -webkit-transform: scale(1.2);;
+  -webkit-transform: scale(1.2);
   }
 
   ${({ playingIcon }) =>
@@ -40,9 +40,8 @@ const IconBtn = styled.button`
     ${({ playingIconTop }) =>
       playingIconTop &&
       css`
-        margin: -40px -30px;
-        min-width: 204px;
-        height: 204px;
+        min-width: 100px;
+        height: 100px;
         background-size: 60%;
         background-color: transparent;
         background-position: left 6px center;
@@ -51,8 +50,8 @@ const IconBtn = styled.button`
     notPlayingIconTop &&
     css`
       margin: 0 10px;
-      min-width: 124px;
-      height: 124px;
+      min-width: 100px;
+      height: 100px;
       background-size: 100%;
       background-color: transparent;
     `}

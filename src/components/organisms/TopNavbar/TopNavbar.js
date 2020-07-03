@@ -21,14 +21,11 @@ const StyledWrapper = styled.div`
   align-items: center;
 `;
 
-const InnerLeftWrapper = styled.div`
-  margin-right: auto;
-`;
 const InnerCenterWrapperMain = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin-right: 11vw;
+  margin: auto;
 
   h1 {
     margin: 5px 0;
@@ -38,43 +35,40 @@ const InnerCenterWrapperPlaylist = styled.div`
   display: flex;
   flex-direction: column;
   text-align: left;
-  margin-left: -15vw;
-
+  margin-right: auto;
   h1 {
     margin: 5px 0;
   }
 `;
 const InnerRightWrapper = styled.div`
-  margin-left: auto;
+  /* margin-left: auto; */
 `;
 
 const TopNavbar = ({ isPlaying, navType, song, showMore, showLess }) => (
   <StyledWrapper>
-    <InnerLeftWrapper>
-      <ButtonIcon icon={BackIcon} onClick={showLess} backIcon />;
-    </InnerLeftWrapper>
-    <InnerCenterWrapperMain>
-      {navType === 'main' && (
-        <>
+    <ButtonIcon icon={BackIcon} onClick={showLess} backIcon />
+    {navType === 'main' && (
+      <>
+        <InnerCenterWrapperMain>
           <Heading fontSize="s" secondary>
             Album
           </Heading>
           <Heading fontSize="m">{song.album}</Heading>
-        </>
-      )}
-    </InnerCenterWrapperMain>
-    <InnerCenterWrapperPlaylist>
-      {navType === 'playlist' && (
-        <>
+        </InnerCenterWrapperMain>
+      </>
+    )}
+    {navType === 'playlist' && (
+      <>
+        <InnerCenterWrapperPlaylist>
           <Heading fontSize="m" bold>
             {song.album}
           </Heading>
           <Heading fontSize="s" secondary>
             {song.artist}
           </Heading>
-        </>
-      )}
-    </InnerCenterWrapperPlaylist>
+        </InnerCenterWrapperPlaylist>
+      </>
+    )}
     <InnerRightWrapper>
       {navType === 'playlist' && (
         <>
