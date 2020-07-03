@@ -9,6 +9,7 @@ import unreleased from '../../assets/covers/unreleased_cover.png';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import bacgroundImage from '../../assets/bg_image.jpg';
+import { changeRepeat } from '../../redux/actionCreators/songsActionCreators';
 const StyledWrapper = styled.div`
   background-image: url(${bacgroundImage});
   background-image: linear-gradient(
@@ -64,7 +65,7 @@ const ButtonWrapper = styled.div`
   padding-bottom: 30px;
 `;
 
-const More = ({ song, activeSongIndex, hide }) => {
+const Playlist = ({ song, activeSongIndex, hide, changeRepeat }) => {
   const covers = [unreleased, cover, cover1];
 
   return (
@@ -100,7 +101,7 @@ const More = ({ song, activeSongIndex, hide }) => {
           </ol>
         </PlaylistWrapper>
         <ButtonWrapper>
-          <Button>SHUFFLE PLAY</Button>
+          <Button onClick={changeRepeat}>SHUFFLE PLAY</Button>
         </ButtonWrapper>
       </PlaylistViewWrapper>
     </StyledWrapper>
@@ -112,4 +113,4 @@ const mapStateToProps = (state) => ({
   song: state.songs.byId[state.songs.allIds[state.songs.activeSongIndex]],
 });
 
-export default compose(connect(mapStateToProps), withTheme)(More);
+export default compose(connect(mapStateToProps, { changeRepeat }), withTheme)(Playlist);

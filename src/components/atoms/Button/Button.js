@@ -13,6 +13,9 @@ const Button = styled.button`
   color: ${({ theme }) => theme.white};
   text-transform: uppercase;
   outline: none;
+  :active {
+    transform: scale(1.1);
+  }
 `;
 
 export default Button;
