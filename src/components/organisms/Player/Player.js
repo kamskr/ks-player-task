@@ -10,12 +10,10 @@ import { connect } from 'react-redux';
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: -4px;
+  flex: 1;
 `;
 const InfoWrapper = styled.div`
-  margin-top: -50px;
   text-align: center;
-  margin-bottom: 10%;
 `;
 const Player = ({ song }) => (
   <StyledWrapper>

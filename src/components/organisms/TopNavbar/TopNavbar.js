@@ -13,7 +13,7 @@ import { play, pause } from '../../../redux/actionCreators/songsActionCreators';
 
 const StyledWrapper = styled.div`
   padding-top: 20px;
-  width: 100vw;
+  width: 100%;
   border: none;
   display: flex;
   flex-direction: row;
@@ -66,16 +66,20 @@ const TopNavbar = ({ isPlaying, navType, song }) => (
     <InnerCenterWrapperPlaylist>
       {navType === 'playlist' && (
         <>
-          <Heading bold>Unreleased</Heading>
-          <Heading secondary>{song.album}</Heading>
+          <Heading fontSize="m" bold>
+            {song.album}
+          </Heading>
+          <Heading fontSize="s" secondary>
+            {song.artist}
+          </Heading>
         </>
       )}
     </InnerCenterWrapperPlaylist>
     <InnerRightWrapper>
       {navType === 'playlist' && (
         <>
-          {isPlaying && <ButtonIcon icon={PlayActiveIcon} playingIcon onClick={pause} />}
-          {!isPlaying && <ButtonIcon icon={PlayInactiveIcon} notPlayingIcon onClick={play} />}
+          {isPlaying && <ButtonIcon icon={PlayActiveIcon} playingIconTop onClick={pause} />}
+          {!isPlaying && <ButtonIcon icon={PlayInactiveIcon} notPlayingIconTop onClick={play} />}
         </>
       )}
       {navType !== 'playlist' && <ButtonIcon icon={MoreIcon} moreIcon />}

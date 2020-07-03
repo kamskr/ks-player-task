@@ -18,11 +18,10 @@ const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
-  margin-right: -30px;
 `;
-const Main = () => (
+const Main = ({ showMore }) => (
   <StyledWrapper>
-    <TopNavbar navType="main" />
+    <TopNavbar showMore={showMore} navType="main" />
     <Player />
     <BottomNavbar />
   </StyledWrapper>

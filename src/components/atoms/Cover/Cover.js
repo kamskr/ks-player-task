@@ -1,8 +1,9 @@
 import styled, { css } from 'styled-components';
 
 const Cover = styled.div`
-  width: 50%;
-  height: 50%;
+  width: 35vw;
+  height: 35vw;
+  max-width: 300px;
   border-radius: 50%;
   background-image: url(${({ coverImageUrl }) => coverImageUrl});
   background-repeat: no-repeat;
@@ -10,14 +11,14 @@ const Cover = styled.div`
   background-position: center;
   background-color: transparent;
   border: none;
-  margin: 150px auto 0 auto;
-  transform: translate(0%, -50%);
+  margin: auto;
 
   ${({ active }) =>
     active &&
     css`
-      width: 100%;
-      height: 100%;
+      width: 50vw;
+      height: 50vw;
+      max-width: 400px;
     `}
 `;
 

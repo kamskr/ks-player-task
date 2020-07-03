@@ -37,6 +37,26 @@ const IconBtn = styled.button`
       background-size: 100%;
       background-color: transparent;
     `}
+    ${({ playingIconTop }) =>
+      playingIconTop &&
+      css`
+        margin: 0px 0;
+        height: 100px;
+        width: 100px;
+        background-size: 100%;
+        background-color: transparent;
+        background-position: left 6px center;
+      `}
+  ${({ notPlayingIconTop }) =>
+    notPlayingIconTop &&
+    css`
+      margin: 0 10px;
+      min-width: 124px;
+      height: 124px;
+      background-size: 60%;
+      background-color: transparent;
+    `}
+
     ${({ moreIcon }) =>
       moreIcon &&
       css`
