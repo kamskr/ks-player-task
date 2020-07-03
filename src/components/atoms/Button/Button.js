@@ -9,7 +9,7 @@ const Button = styled.button`
   border: none;
   border-radius: 50px;
   font-weight: ${({ theme }) => theme.bold};
-  font-size: ${({ theme }) => theme.fontSize.m};
+  font-size: ${({ theme }) => theme.fontSize.xs};
   color: ${({ theme }) => theme.white};
   text-transform: uppercase;
   outline: none;

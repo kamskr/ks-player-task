@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { withTheme } from 'styled-components';
 import TopNavbar from '../../components/organisms/TopNavbar/TopNavbar';
 import SongDisplay from '../../components/molecules/SongDisplay/SongDisplay';
-import Paragraph from '../../components/atoms/Paragraph/Paragraph';
+import Button from '../../components/atoms/Button/Button';
 import cover from '../../assets/covers/cover.png';
 import cover1 from '../../assets/covers/cover-1.png';
 import unreleased from '../../assets/covers/unreleased_cover.png';
@@ -23,14 +23,12 @@ const StyledWrapper = styled.div`
   display: flex;
   position: fixed;
   width: 100%;
-  height: 100%;
   overflow-y: hidden;
   top: 0;
   bottom: 0;
 `;
 
 const PlaylistWrapper = styled.div`
-  background-color: ${({ theme }) => theme.white};
   padding: 10% 10% 0 4%;
   text-align: center;
   flex: 1;
@@ -52,6 +50,19 @@ const PlaylistWrapper = styled.div`
     display: inline-block;
   }
 `;
+const PlaylistViewWrapper = styled.div`
+  display: flex;
+  background-color: ${({ theme }) => theme.white};
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+`;
+const ButtonWrapper = styled.div`
+  width: 100%;
+  text-align: center;
+  padding-bottom: 30px;
+`;
 
 const More = ({ song, activeSongIndex, hide }) => {
   const covers = [unreleased, cover, cover1];
@@ -59,46 +70,39 @@ const More = ({ song, activeSongIndex, hide }) => {
   return (
     <StyledWrapper>
       <TopNavbar navType="playlist" showLess={hide} />
-      <PlaylistWrapper>
-        <ol>
-          <li>
-            <SongDisplay songTitle="Livin' In A Movie" duration={400} />
-          </li>
-          <li>
-            <SongDisplay songTitle="Livin' In A Movie" duration={400} />
-          </li>
-          <li>
-            <SongDisplay songTitle="Livin' In A Movie" duration={400} />
-          </li>
-          <li>
-            <SongDisplay songTitle="Livin' In A Movie" duration={400} />
-          </li>
-          <li>
-            <SongDisplay songTitle="Livin' In A Movie" duration={400} />
-          </li>
-          <li>
-            <SongDisplay songTitle="Livin' In A Movie" duration={400} />
-          </li>
-          <li>
-            <SongDisplay songTitle="Livin' In A Movie" duration={400} />
-          </li>
-          <li>
-            <SongDisplay songTitle="Livin' In A Movie" duration={400} />
-          </li>
-          <li>
-            <SongDisplay songTitle="Livin' In A Movie" duration={400} />
-          </li>
-          <li>
-            <SongDisplay songTitle="Livin' In A Movie" duration={400} />
-          </li>
-          <li>
-            <SongDisplay songTitle="Livin' In A Movie" duration={400} />
-          </li>
-          <li>
-            <SongDisplay songTitle="Livin' In A Movie" duration={400} />
-          </li>
-        </ol>
-      </PlaylistWrapper>
+      <PlaylistViewWrapper>
+        <PlaylistWrapper>
+          <ol>
+            <li>
+              <SongDisplay songTitle="Livin' In A Movie" duration={400} />
+            </li>
+            <li>
+              <SongDisplay songTitle="Livin' In A Movie" duration={400} />
+            </li>
+            <li>
+              <SongDisplay songTitle="Livin' In A Movie" duration={400} />
+            </li>
+            <li>
+              <SongDisplay songTitle="Livin' In A Movie" duration={400} />
+            </li>
+            <li>
+              <SongDisplay songTitle="Livin' In A Movie" duration={400} />
+            </li>
+            <li>
+              <SongDisplay songTitle="Livin' In A Movie" duration={400} />
+            </li>
+            <li>
+              <SongDisplay songTitle="Livin' In A Movie" duration={400} />
+            </li>
+            <li>
+              <SongDisplay songTitle="Livin' In A Movie" duration={400} />
+            </li>
+          </ol>
+        </PlaylistWrapper>
+        <ButtonWrapper>
+          <Button>SHUFFLE PLAY</Button>
+        </ButtonWrapper>
+      </PlaylistViewWrapper>
     </StyledWrapper>
   );
 };
