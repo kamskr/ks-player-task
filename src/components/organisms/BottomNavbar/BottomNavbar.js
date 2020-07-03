@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 const StyledWrapper = styled.div`
   display: flex;
   width: 100vw;
-  height: 100%;
+  max-height: 120px;
   min-height: 80px;
   margin-right: -20px;
   background-color: ${({ theme }) => theme.white};
