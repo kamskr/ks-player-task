@@ -48,10 +48,10 @@ const InnerRightWrapper = styled.div`
   margin-left: auto;
 `;
 
-const TopNavbar = ({ isPlaying, navType, song }) => (
+const TopNavbar = ({ isPlaying, navType, song, showMore, showLess }) => (
   <StyledWrapper>
     <InnerLeftWrapper>
-      <ButtonIcon icon={BackIcon} backIcon />;
+      <ButtonIcon icon={BackIcon} onClick={showLess} backIcon />;
     </InnerLeftWrapper>
     <InnerCenterWrapperMain>
       {navType === 'main' && (
@@ -82,7 +82,7 @@ const TopNavbar = ({ isPlaying, navType, song }) => (
           {!isPlaying && <ButtonIcon icon={PlayInactiveIcon} notPlayingIconTop onClick={play} />}
         </>
       )}
-      {navType !== 'playlist' && <ButtonIcon icon={MoreIcon} moreIcon />}
+      {navType !== 'playlist' && <ButtonIcon onClick={showMore} icon={MoreIcon} moreIcon />}
     </InnerRightWrapper>
   </StyledWrapper>
 );

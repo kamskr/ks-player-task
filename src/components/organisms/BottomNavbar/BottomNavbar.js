@@ -28,11 +28,11 @@ const InnerSectionWrapper = styled.div`
   margin: auto 20px auto 0;
 `;
 
-const BottomNavbar = ({ songsById, songs, activeSongIndex }) => {
+const BottomNavbar = ({ songsById, songs, activeSongIndex, showPlaylist }) => {
   let nextSongIndex = activeSongIndex + 1 >= songs.length ? 0 : activeSongIndex + 1;
   return (
     <StyledWrapper>
-      <ButtonIcon icon={PlaylistIcon} playlist />
+      <ButtonIcon icon={PlaylistIcon} onClick={showPlaylist} playlist />
       <InnerSectionWrapper>
         <Next>NEXT</Next>
         <SongDisplay

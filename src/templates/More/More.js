@@ -12,13 +12,39 @@ import unreleased from '../../assets/covers/unreleased_cover.png';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+const HideWrapper = styled.div`
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+  top: 0;
+  bottom: 0;
+
+  .enter {
+    opacity: 0;
+  }
+  .enter-active {
+    opacity: 1;
+    transition: opacity 200ms;
+  }
+  .exit {
+    opacity: 1;
+  }
+  .exit-active {
+    opacity: 0;
+    transition: opacity 200ms;
+  }
+`;
+
 const StyledWrapper = styled.div`
   display: flex;
-  flex: 1;
-  background-image: ${({ theme }) => theme.backgroundLight};
+  background-color: ${({ theme }) => theme.backgroundLight};
   background-repeat: no-repeat;
   background-size: 100% auto;
   flex-direction: column;
+  flex: 1;
+  transition: 0.3s;
 `;
 
 const InfoWrapper = styled.div`
@@ -37,34 +63,36 @@ const LinkWrapper = styled.div`
     margin-top: 30px;
   }
 `;
-const More = ({ song, activeSongIndex }) => {
+const More = ({ song, activeSongIndex, hide }) => {
   const covers = [unreleased, cover, cover1];
 
   return (
-    <StyledWrapper>
-      <TopNavbar navType="viewMore" />
-      <CoverWrapper>
-        <div style={{ margin: 'auto auto 0 auto', display: 'flex' }}>
-          <Cover coverImageUrl={covers[activeSongIndex]} />
-        </div>
-      </CoverWrapper>
-      <InfoWrapper>
-        <Heading bold>{song.name}</Heading>
-        <Heading secondary fontSize="s">
-          {song.artist}
-        </Heading>
-        <Heading secondary fontSize="l">
-          . . .
-        </Heading>
+    <HideWrapper>
+      <StyledWrapper>
+        <TopNavbar showLess={hide} navType="viewMore" />
+        <CoverWrapper>
+          <div style={{ margin: 'auto auto 0 auto', display: 'flex' }}>
+            <Cover coverImageUrl={covers[activeSongIndex]} />
+          </div>
+        </CoverWrapper>
+        <InfoWrapper>
+          <Heading bold>{song.name}</Heading>
+          <Heading secondary fontSize="s">
+            {song.artist}
+          </Heading>
+          <Heading secondary fontSize="l">
+            . . .
+          </Heading>
 
-        <LinkWrapper>
-          <Heading fontSize="s">Add to playlist</Heading>
-          <Heading fontSize="s">Show album</Heading>
-          <Heading fontSize="s">Share with friends</Heading>
-        </LinkWrapper>
-      </InfoWrapper>
-      <BottomNavbar />
-    </StyledWrapper>
+          <LinkWrapper>
+            <Heading fontSize="s">Add to playlist</Heading>
+            <Heading fontSize="s">Show album</Heading>
+            <Heading fontSize="s">Share with friends</Heading>
+          </LinkWrapper>
+        </InfoWrapper>
+        <BottomNavbar />
+      </StyledWrapper>
+    </HideWrapper>
   );
 };
 

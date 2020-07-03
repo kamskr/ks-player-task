@@ -15,15 +15,16 @@ const StyledWrapper = styled.div`
     url(${bacgroundImage});
   background-repeat: no-repeat;
   background-size: 100% auto;
+
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
 `;
-const Main = ({ showMore }) => (
+const Main = ({ showMore, showLess, showPlaylist }) => (
   <StyledWrapper>
-    <TopNavbar showMore={showMore} navType="main" />
+    <TopNavbar showMore={showMore} showLess={showLess} navType="main" />
     <Player />
-    <BottomNavbar />
+    <BottomNavbar showPlaylist={showPlaylist} />
   </StyledWrapper>
 );
 

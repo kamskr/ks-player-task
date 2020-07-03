@@ -10,10 +10,15 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 const StyledWrapper = styled.div`
-  display: flex;
   background-image: ${({ theme }) => theme.backgroundLight};
   flex-direction: column;
-  height: 100vh;
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+  top: 0;
+  bottom: 0;
 `;
 
 const PlaylistWrapper = styled.div`

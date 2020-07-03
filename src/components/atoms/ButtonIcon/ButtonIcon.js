@@ -34,16 +34,16 @@ const IconBtn = styled.button`
       margin: 0 10px;
       min-width: 124px;
       height: 124px;
-      background-size: 100%;
+      background-size: 60%;
       background-color: transparent;
     `}
     ${({ playingIconTop }) =>
       playingIconTop &&
       css`
-        margin: 0px 0;
-        height: 100px;
-        width: 100px;
-        background-size: 100%;
+        margin: -40px -30px;
+        min-width: 204px;
+        height: 204px;
+        background-size: 60%;
         background-color: transparent;
         background-position: left 6px center;
       `}
@@ -53,7 +53,7 @@ const IconBtn = styled.button`
       margin: 0 10px;
       min-width: 124px;
       height: 124px;
-      background-size: 60%;
+      background-size: 100%;
       background-color: transparent;
     `}
 
