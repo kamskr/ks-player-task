@@ -57,7 +57,7 @@ const IconBtn = styled.button`
         `}
 `;
 
-const MoreWrapper = styled.button`
+const MoreWrapper = styled.div`
   display: flex;
   height: 30px;
   flex-direction: column;

@@ -32,9 +32,9 @@ const SongDisplay = (props) => (
         y1="2"
         y2="2"
         stroke={`${props.theme.grey}`}
-        stroke-width="1"
-        stroke-linecap="round"
-        stroke-dasharray="1, 10"
+        strokeWidth="1"
+        strokeLinecap="round"
+        strokeDasharray="1, 10"
       />
     </Dots>
 

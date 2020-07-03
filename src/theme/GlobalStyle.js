@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-    @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,900;1,300&display=swap");
+
     *, *::before, *::after {
         box-sizing: border-box;
         -webkit-font-smoothing: antialiased;
@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
     body {
         font-size: 1.6rem; // happy rems
         font-family: 'Montserrat', sans-serif;
-        background-color: rgb(30, 24, 55);
+        background-color: ${({ theme }) => theme.background};
     }
 
     html, body {

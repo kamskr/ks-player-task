@@ -1,7 +1,7 @@
 export const songs = {
   1: {
     id: '1',
-    name: 'Self Consciousm',
+    name: 'Self Conscious',
     artist: 'Kanye West',
     album: 'Unreleased',
     duration: 4 * 60 + 12,

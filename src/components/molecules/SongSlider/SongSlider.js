@@ -8,6 +8,9 @@ import 'slick-carousel/slick/slick-theme.css';
 //redux
 import { connect } from 'react-redux';
 import { changeSong } from '../../../redux/actionCreators/songsActionCreators';
+import cover from '../../../assets/covers/cover.png';
+import cover1 from '../../../assets/covers/cover-1.png';
+import unreleased from '../../../assets/covers/unreleased_cover.png';
 
 const StyledWrapper = styled.div`
   width: 100vw;
@@ -31,7 +34,7 @@ const SongSlider = ({ songsIds, songsById, changeSong, activeSongIndex }) => {
     afterChange: (current) => changeSong(current),
   };
   const ref = useRef();
-
+  const covers = [unreleased, cover, cover1];
   useEffect(() => {
     ref.current.slickGoTo(activeSongIndex);
   }, [activeSongIndex]);
@@ -41,10 +44,7 @@ const SongSlider = ({ songsIds, songsById, changeSong, activeSongIndex }) => {
       <Slider {...settings} ref={ref}>
         {songsIds.map((id, index) => (
           <CoverWrapper key={id + '-song'}>
-            <Cover
-              coverImageUrl={window.location.href + songsById[id].cover}
-              active={index === activeSongIndex}
-            />
+            <Cover coverImageUrl={covers[index]} active={index === activeSongIndex} />
           </CoverWrapper>
         ))}
       </Slider>

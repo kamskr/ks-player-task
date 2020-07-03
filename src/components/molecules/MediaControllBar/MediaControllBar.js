@@ -68,7 +68,6 @@ const MediaControllBar = ({
     changeSong(nextSongIndex);
   }, [songs, activeSongIndex, changeSong]);
 
-  console.log('renderuje');
   return (
     <StyledWrapper>
       <ButtonIcon icon={ShuffleIcon} onClick={changeRepeat} />

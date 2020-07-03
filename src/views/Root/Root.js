@@ -1,5 +1,4 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from '../../theme/GlobalStyle';
 import { theme } from '../../theme/mainTheme';
@@ -10,17 +9,12 @@ import store from '../../redux/store';
 
 const Root = () => (
   <div>
-    <BrowserRouter>
+    <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <ThemeProvider theme={theme}>
-        <Provider store={store}>
-          <Switch>
-            <Route path="/" component={Main} />
-          </Switch>
-        </Provider>
-      </ThemeProvider>
-    </BrowserRouter>
-    ;
+      <Provider store={store}>
+        <Main />
+      </Provider>
+    </ThemeProvider>
   </div>
 );
 
