@@ -1,5 +1,5 @@
 import styled, { withTheme } from 'styled-components';
-import React, { useRef, useEffect, useMemo } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 const Canvas = styled.canvas`
   width: 100%;
