@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { theme } from './mainTheme';
 
 const GlobalStyle = createGlobalStyle`
     @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,900;1,300&display=swap");
@@ -13,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
     body {
         font-size: 1.6rem; // happy rems
         font-family: 'Montserrat', sans-serif;
+        background-color: rgb(30, 24, 55);
     }
 
     html, body {

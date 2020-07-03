@@ -30,7 +30,7 @@ const InnerCenterWrapperMain = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin-right: 15vw;
+  margin-right: 11vw;
 
   h1 {
     margin: 5px 0;

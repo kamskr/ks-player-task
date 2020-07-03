@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from 'react';
 
 const Canvas = styled.canvas`
   width: 100%;
-  height: 30px;
+  height: 50px;
 `;
 var speed = 3;
 

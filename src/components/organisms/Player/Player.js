@@ -11,17 +11,21 @@ import { connect } from 'react-redux';
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  margin-bottom: -4px;
 `;
 const InfoWrapper = styled.div`
-  margin-top: -30px;
+  margin-top: -50px;
   text-align: center;
+  margin-bottom: 10%;
 `;
 const Player = ({ song }) => (
   <StyledWrapper>
     <SongSlider />
     <InfoWrapper>
       <Heading bold>{song.name}</Heading>
-      <Heading secondary>{song.artist}</Heading>
+      <Heading secondary fontSize="s">
+        {song.artist}
+      </Heading>
     </InfoWrapper>
     <MediaControllBar />
     <ProgressSection />
