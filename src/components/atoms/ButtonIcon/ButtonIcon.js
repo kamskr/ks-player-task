@@ -29,6 +29,10 @@ const IconBtn = styled.button`
       background-position: left 6px center;
       transform: scale(0.7);
       -webkit-transform: scale(0.7);
+      :active {
+        transform: scale(0.7);
+        -webkit-transform: scale(0.7);
+      }
     `}
   ${({ notPlayingIcon }) =>
     notPlayingIcon &&
@@ -38,6 +42,10 @@ const IconBtn = styled.button`
       height: 124px;
       background-size: 60%;
       background-color: transparent;
+      :active {
+        transform: scale(0.7);
+        -webkit-transform: scale(0.7);
+      }
     `}
     ${({ playingIconTop }) =>
       playingIconTop &&
