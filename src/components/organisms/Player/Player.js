@@ -25,7 +25,9 @@ const Player = ({ song }) => (
     <SongSlider />
 
     <InfoWrapper>
-      <Heading bold>{song.name}</Heading>
+      <Heading bold fontSize="l">
+        {song.name}
+      </Heading>
       <Heading secondary fontSize="xs">
         {song.artist}
       </Heading>

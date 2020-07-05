@@ -22,6 +22,7 @@ const ProgressBarWrapper = styled.div`
 `;
 const Span = styled.span`
   margin: auto 0;
+  width: 30px;
   font-size: ${({ theme }) => theme.fontSize.xs};
   color: ${({ theme }) => theme.grey};
 `;

@@ -13,46 +13,49 @@ const ActiveBar = styled.input`
   -webkit-appearance: none;
   position: absolute;
   background: ${({ theme }) => theme.progressBar};
-  height: 2px;
+  height: 6px;
   border-radius: 6px;
   width: 99%;
-  top: -3px;
+  top: -5px;
+  overflow: hidden;
   :focus {
     outline: none;
   }
+  transition: 0.3s;
   ::-webkit-slider-thumb {
     -webkit-appearance: none;
-    height: 10px;
-    width: 10px;
+    height: 8px;
+    width: 8px;
     border-radius: 50%;
+    box-shadow: -100vw 0 0 100vw ${({ theme }) => theme.progressBar};
     background: ${({ theme }) => theme.progressBar};
     cursor: pointer;
   }
   ::-webkit-slider-runnable-track {
-  }
-  :focus::-webkit-slider-runnable-track {
-    background: ${({ theme }) => theme.progressBar};
-    height: 8px;
-    border-radius: 6px;
+    -webkit-appearance: none;
+    background-color: ${({ theme }) => theme.background};
+    border: none;
+    height: 6px;
     width: 99%;
   }
 `;
-// const BackgroundBar = styled.div`
-//   position: absolute;
-//   background: ${({ theme }) => theme.progressBar};
-//   height: 2px;
-//   width: 100%;
-//   text-align: center;
-//   top: -4px;
-// `;
+const BackgroundBar = styled.div`
+  position: absolute;
+  background: ${({ theme }) => theme.progressBar};
+  height: 2px;
+  width: 99%;
+  margin: 2px;
+  text-align: center;
+  top: -3px;
+`;
 
 const Dot = styled.div`
   background: ${({ theme }) => theme.progressBar};
   position: absolute;
   right: 0;
-  height: 8px;
-  width: 8px;
-  top: -4px;
+  height: 6px;
+  width: 6px;
+  top: -3px;
   border-radius: 6px;
 `;
 
@@ -66,6 +69,7 @@ const ProgressBar = ({ progress, onRewind }) => (
       step="1"
       onChange={({ target }) => onRewind(parseInt(target.value))}
     />
+    <BackgroundBar />
     <Dot />
   </BarContainer>
 );

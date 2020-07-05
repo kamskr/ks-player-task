@@ -60,7 +60,9 @@ const More = ({ song, activeSongIndex, hide }) => {
           {/* </div> */}
         </CoverWrapper>
         <InfoWrapper>
-          <Heading bold>{song.name}</Heading>
+          <Heading bold fontSize="l">
+            {song.name}
+          </Heading>
           <Heading secondary fontSize="s">
             {song.artist}
           </Heading>
