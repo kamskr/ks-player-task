@@ -21,14 +21,14 @@ const ActiveBar = styled.input`
   :focus {
     outline: none;
   }
-  transition: 0.3s;
   ::-webkit-slider-thumb {
     -webkit-appearance: none;
-    height: 8px;
-    width: 8px;
-    border-radius: 50%;
-    box-shadow: -100vw 0 0 100vw ${({ theme }) => theme.progressBar};
+    height: 6px;
+    width: 6px;
+    box-shadow: -100vw 0 0 99.5vw ${({ theme }) => theme.progressBar};
     background: ${({ theme }) => theme.progressBar};
+    border: none;
+    border-radius: 50%;
     cursor: pointer;
   }
   ::-webkit-slider-runnable-track {
