@@ -22,8 +22,8 @@ const ActiveBar = styled.input`
   }
   ::-webkit-slider-thumb {
     -webkit-appearance: none;
-    height: 8px;
-    width: 8px;
+    height: 10px;
+    width: 10px;
     border-radius: 50%;
     background: ${({ theme }) => theme.progressBar};
     cursor: pointer;

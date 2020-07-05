@@ -104,6 +104,13 @@ const IconBtn = styled.button`
             margin: 20px;
             background-color: transparent;
           `}
+          ${({ active }) =>
+            active &&
+            css`
+              filter: invert(100%) sepia(80%) saturate(800%) hue-rotate(205deg) brightness(100%)
+                contrast(106%);
+            `}
+          
 `;
 
 const MoreWrapper = styled.div`

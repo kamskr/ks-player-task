@@ -1,4 +1,4 @@
-import { CHANGE_SONG, PLAY, PAUSE, CHANGE_REPEAT } from '../actions/songsActions';
+import { CHANGE_SONG, PLAY, PAUSE, CHANGE_REPEAT, CHANGE_SHUFFLE } from '../actions/songsActions';
 import { songs } from '../../tempData/songs';
 
 const songList = Object.values(songs).map((s) => s.id);
@@ -9,6 +9,7 @@ const initialState = {
   activeSongIndex: 0,
   isPlaying: true,
   repeat: false,
+  isShuffle: false,
 };
 
 export default (state = initialState, action) => {
@@ -33,6 +34,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         repeat: !state.repeat,
+      };
+    case CHANGE_SHUFFLE:
+      return {
+        ...state,
+        isShuffle: !state.isShuffle,
       };
 
     default:

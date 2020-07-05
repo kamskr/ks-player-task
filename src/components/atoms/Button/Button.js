@@ -13,8 +13,8 @@ const Button = styled.button`
   text-transform: uppercase;
   outline: none;
   :active {
-    transform: scale(1.2);
-    -webkit-transform: scale(1.2);
+    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
   }
 `;
 

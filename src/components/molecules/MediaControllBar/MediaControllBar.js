@@ -15,6 +15,7 @@ import {
   play,
   pause,
   changeRepeat,
+  changeShuffle,
 } from '../../../redux/actionCreators/songsActionCreators';
 
 const StyledWrapper = styled.div`
@@ -39,6 +40,8 @@ const MediaControllBar = ({
   songs,
   changeRepeat,
   repeat,
+  isShuffle,
+  changeShuffle,
 }) => {
   const shuffle = useCallback(() => changeSong(getRandomSong(activeSongIndex, songs.length)), [
     activeSongIndex,
@@ -47,8 +50,8 @@ const MediaControllBar = ({
   ]);
 
   const playNext = useCallback(() => {
-    console.log(repeat);
-    if (repeat) {
+    console.log(isShuffle);
+    if (isShuffle) {
       shuffle();
       return;
     }
@@ -69,12 +72,16 @@ const MediaControllBar = ({
 
   return (
     <StyledWrapper>
-      <ButtonIcon icon={ShuffleIcon} onClick={changeRepeat} />
+      <ButtonIcon
+        icon={ShuffleIcon}
+        active={isShuffle ? true : undefined}
+        onClick={changeShuffle}
+      />
       <ButtonIcon icon={PreviousIcon} onClick={playPrevious} />
       {isPlaying && <ButtonIcon icon={PlayActiveIcon} onClick={pause} playingIcon />}
       {!isPlaying && <ButtonIcon icon={PlayInactiveIcon} onClick={play} notPlayingIcon />}
       <ButtonIcon icon={NextIcon} onClick={playNext} />
-      <ButtonIcon icon={RepeatIcon} onClick={changeRepeat} />
+      <ButtonIcon icon={RepeatIcon} active={repeat ? true : undefined} onClick={changeRepeat} />
     </StyledWrapper>
   );
 };
@@ -84,6 +91,7 @@ const mapDispatchToProps = {
   play,
   pause,
   changeRepeat,
+  changeShuffle,
 };
 
 const mapStateToProps = (state) => ({
@@ -91,6 +99,7 @@ const mapStateToProps = (state) => ({
   activeSongIndex: state.songs.activeSongIndex,
   isPlaying: state.songs.isPlaying,
   repeat: state.songs.repeat,
+  isShuffle: state.songs.isShuffle,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MediaControllBar);
