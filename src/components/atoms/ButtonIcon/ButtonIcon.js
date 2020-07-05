@@ -98,7 +98,12 @@ const IconBtn = styled.button`
           width: 30px;
           margin: 0 40px;
         `}
-        
+        ${({ hideIcon }) =>
+          hideIcon &&
+          css`
+            margin: 20px;
+            background-color: transparent;
+          `}
 `;
 
 const MoreWrapper = styled.div`

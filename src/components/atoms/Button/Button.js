@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Button = styled.button`
   padding: 0;
   background-color: ${({ theme }) => theme.accent};
-  width: 220px;
+  width: 100%;
   height: 47px;
   border: none;
   border-radius: 50px;

@@ -53,9 +53,9 @@ const Root = () => {
           <CSSTransition in={showMore} timeout={300} unmountOnExit>
             <More hide={() => setShowMore(false)} />
           </CSSTransition>
-          <CSSTransition in={showPlaylist} timeout={300} unmountOnExit>
-            <Playlist hide={() => setShowPlaylist(false)} />
-          </CSSTransition>
+          {/* <CSSTransition in={showPlaylist} timeout={300} unmountOnExit> */}
+          <Playlist hide={() => setShowPlaylist(false)} />
+          {/* </CSSTransition> */}
           {/* <Playlist hidden={!showPlaylist} hide={() => setShowPlaylist(false)} /> */}
         </App>
       </Provider>
