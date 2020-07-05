@@ -23,6 +23,16 @@ const Cover = styled.div`
       margin: 0px auto;
       transition: 0.3s;
     `}
+
+  ${({ more }) =>
+    more &&
+    css`
+      width: 156px;
+      height: 156px;
+      max-width: 400px;
+
+      margin: 0px auto;
+    `}
 `;
 
 export default Cover;

@@ -15,10 +15,12 @@ const StyledWrapper = styled.div`
     url(${bacgroundImage});
   background-repeat: no-repeat;
   background-size: 100% auto;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
 
   display: flex;
   flex-direction: column;
-  height: 100%;
 `;
 const Main = ({ showMore, showLess, showPlaylist }) => (
   <StyledWrapper>

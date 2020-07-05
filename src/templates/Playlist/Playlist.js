@@ -95,7 +95,7 @@ const ButtonWrapper = styled.div`
   padding: 0px 40px 0 40px;
 `;
 
-const Playlist = ({ song, activeSongIndex, hide, changeShuffle, isShuffle }) => {
+const Playlist = ({ hide, changeShuffle, isShuffle }) => {
   const shuffleOnClick = () => {
     if (isShuffle) {
       hide();

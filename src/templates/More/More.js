@@ -12,9 +12,10 @@ import { compose } from 'redux';
 
 const HideWrapper = styled.div`
   display: flex;
-  position: fixed;
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  padding-bottom: 75px;
   overflow-y: hidden;
   top: 0;
   bottom: 0;
@@ -54,7 +55,7 @@ const More = ({ song, activeSongIndex, hide }) => {
         <TopNavbar showLess={hide} navType="viewMore" />
         <CoverWrapper>
           {/* <div style={{ margin: 'auto auto 0 auto', display: 'flex' }}> */}
-          <Cover coverImageUrl={covers[activeSongIndex]} />
+          <Cover coverImageUrl={covers[activeSongIndex]} more />
           {/* </div> */}
         </CoverWrapper>
         <InfoWrapper>
@@ -72,7 +73,6 @@ const More = ({ song, activeSongIndex, hide }) => {
             <Heading fontSize="s">Share with friends</Heading>
           </LinkWrapper>
         </InfoWrapper>
-        <BottomNavbar />
       </StyledWrapper>
     </HideWrapper>
   );
