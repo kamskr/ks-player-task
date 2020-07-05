@@ -50,13 +50,13 @@ const IconBtn = styled.button`
     ${({ playingIconTop }) =>
       playingIconTop &&
       css`
-      margin: 0;
+      /* padding-right: 40px; */
         min-width:90px;
         height: 90px;
         background-size: 100%;
         background-color: transparent;
-        background-position: right 1px center;
-        margin-right: 0px;
+        background-position: right 0px center;
+        /* margin-left: 10px; */
         :active {s
           transform: scale(1);
           -webkit-transform: scale(1);
@@ -70,6 +70,9 @@ const IconBtn = styled.button`
       height: 60px;
       background-size: 100%;
       background-color: transparent;
+      margin-right: 30px;
+      margin-left: 30px;
+      background-position: right 0px center;
       :active {
         transform: scale(1);
         -webkit-transform: scale(1);

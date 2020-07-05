@@ -38,10 +38,12 @@ const InnerCenterWrapperPlaylist = styled.div`
   display: flex;
   flex-direction: column;
   text-align: left;
+  margin-right: 10%;
+  margin-left: 20px;
 `;
-const InnerRightWrapper = styled.div`
-  /* margin-left: auto; */
-`;
+// const InnerRightWrapper = styled.div`
+//   margin-right: ;
+// `;
 
 const TopNavbar = ({ isPlaying, navType, song, showMore, showLess, play, pause }) => (
   <StyledWrapper>
@@ -68,15 +70,15 @@ const TopNavbar = ({ isPlaying, navType, song, showMore, showLess, play, pause }
         </InnerCenterWrapperPlaylist>
       </>
     )}
-    <InnerRightWrapper>
-      {navType === 'playlist' && (
-        <>
-          {isPlaying && <ButtonIcon icon={PlayActiveIcon} playingIconTop onClick={pause} />}
-          {!isPlaying && <ButtonIcon icon={PlayInactiveIcon} notPlayingIconTop onClick={play} />}
-        </>
-      )}
-      {navType !== 'playlist' && <ButtonIcon onClick={showMore} icon={MoreIcon} moreIcon />}
-    </InnerRightWrapper>
+    {/* <InnerRightWrapper> */}
+    {navType === 'playlist' && (
+      <>
+        {isPlaying && <ButtonIcon icon={PlayActiveIcon} playingIconTop onClick={pause} />}
+        {!isPlaying && <ButtonIcon icon={PlayInactiveIcon} notPlayingIconTop onClick={play} />}
+      </>
+    )}
+    {navType !== 'playlist' && <ButtonIcon onClick={showMore} icon={MoreIcon} moreIcon />}
+    {/* </InnerRightWrapper> */}
   </StyledWrapper>
 );
 
