@@ -9,6 +9,11 @@ import { connect } from 'react-redux';
 
 const StyledWrapper = styled.div`
   display: flex;
+  position: fixed;
+  bottom: 60px;
+  top: 120px;
+  left: 0;
+  right: 0;
   flex-direction: column;
   flex: 1;
 `;
@@ -18,9 +23,10 @@ const InfoWrapper = styled.div`
 const Player = ({ song }) => (
   <StyledWrapper>
     <SongSlider />
+
     <InfoWrapper>
       <Heading bold>{song.name}</Heading>
-      <Heading secondary fontSize="s">
+      <Heading secondary fontSize="xs">
         {song.artist}
       </Heading>
     </InfoWrapper>

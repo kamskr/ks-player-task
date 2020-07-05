@@ -13,7 +13,7 @@ import store from '../../redux/store';
 
 const App = styled.div`
   position: relative;
-  height: 100%;
+  height: 100vh;
   /* overflow-y: auto; */
   top: 0;
   bottom: 0;
@@ -59,7 +59,6 @@ const Root = () => {
       <Provider store={store}>
         <App>
           <Main showPlaylist={() => setShowPlaylist(true)} showMore={() => setShowMore(true)} />
-          {/* <More hide={() => setShowMore(false)} /> */}
           <CSSTransition
             in={showMore}
             timeout={300}
@@ -72,14 +71,12 @@ const Root = () => {
           <CSSTransition
             in={showPlaylist}
             timeout={300}
-            timeout={300}
             classNames="playlistSlide"
             mountOnEnter={true}
             unmountOnExit={true}
           >
             <Playlist hide={() => setShowPlaylist(false)} />
           </CSSTransition>
-          {/* <Playlist hidden={!showPlaylist} hide={() => setShowPlaylist(false)} /> */}
         </App>
       </Provider>
     </ThemeProvider>

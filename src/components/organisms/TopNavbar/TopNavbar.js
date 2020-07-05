@@ -29,10 +29,10 @@ const InnerCenterWrapperMain = styled.div`
   flex-direction: column;
   text-align: center;
   margin: auto;
-
-  /* h1 {
+  margin: 0 auto;
+  h1 {
     margin: 0;
-  } */
+  }
 `;
 const InnerCenterWrapperPlaylist = styled.div`
   display: flex;

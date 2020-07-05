@@ -21,31 +21,21 @@ const IconBtn = styled.button`
   ${({ playingIcon }) =>
     playingIcon &&
     css`
-      margin: -40px -30px;
-      min-width: 204px;
-      height: 204px;
+      margin: -10px 0;
+      min-width: 160px;
+      height: 160px;
       background-size: 100%;
       background-color: transparent;
       background-position: left 6px center;
-      transform: scale(0.7);
-      -webkit-transform: scale(0.7);
-      :active {
-        transform: scale(0.7);
-        -webkit-transform: scale(0.7);
-      }
     `}
   ${({ notPlayingIcon }) =>
     notPlayingIcon &&
     css`
-      margin: 0 10px;
-      min-width: 124px;
-      height: 124px;
+      margin: 0px 10px;
+      min-width: 140px;
+      height: 140px;
       background-size: 60%;
       background-color: transparent;
-      :active {
-        transform: scale(0.7);
-        -webkit-transform: scale(0.7);
-      }
     `}
     ${({ playingIconTop }) =>
       playingIconTop &&
@@ -95,7 +85,7 @@ const IconBtn = styled.button`
       ${({ playlist }) =>
         playlist &&
         css`
-          width: 30px;
+          width: 25px;
           margin: 0 40px;
         `}
         ${({ hideIcon }) =>

@@ -1,9 +1,10 @@
 import styled, { css } from 'styled-components';
 
 const Cover = styled.div`
-  width: 104px;
-  height: 104px;
-  max-width: 300px;
+  width: 25vw;
+  height: 25vw;
+  max-width: 13vh;
+  max-height: 13vh;
   border-radius: 50%;
   background-image: url(${({ coverImageUrl }) => coverImageUrl});
   background-repeat: no-repeat;
@@ -16,9 +17,10 @@ const Cover = styled.div`
   ${({ active }) =>
     active &&
     css`
-      width: 208px;
-      height: 208px;
-      max-width: 400px;
+      width: 50vw;
+      height: 50vw;
+      max-width: 26vh;
+      max-height: 26vh;
 
       margin: 0px auto;
       transition: 0.3s;
@@ -27,11 +29,12 @@ const Cover = styled.div`
   ${({ more }) =>
     more &&
     css`
-      width: 156px;
-      height: 156px;
-      max-width: 400px;
+      width: 40vw;
+      height: 40vw;
+      max-width: 20vh;
+      max-height: 20vh;
 
-      margin: 0px auto;
+      margin: 0px auto 20px auto;
     `}
 `;
 

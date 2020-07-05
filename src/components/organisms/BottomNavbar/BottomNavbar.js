@@ -8,9 +8,10 @@ import { connect } from 'react-redux';
 
 const StyledWrapper = styled.div`
   display: flex;
-  width: 100vw;
-  min-height: 80px;
-  margin-right: -20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
   background-color: ${({ theme }) => theme.white};
   align-items: center;
   justify-content: center;
@@ -24,7 +25,7 @@ const InnerSectionWrapper = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  margin: auto 40px auto 0;
+  margin: auto 20px auto 0;
 `;
 
 const BottomNavbar = ({ songsById, songs, activeSongIndex, showPlaylist }) => {

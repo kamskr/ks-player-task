@@ -13,8 +13,7 @@ import { connect } from 'react-redux';
 import { changeSong } from '../../../redux/actionCreators/songsActionCreators';
 
 const StyledWrapper = styled.div`
-  flex: 1;
-  margin: 20px 0;
+  margin: auto 0;
 `;
 const CoverWrapper = styled.div`
   display: flex;

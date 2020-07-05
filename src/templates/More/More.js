@@ -12,23 +12,24 @@ import { compose } from 'redux';
 
 const HideWrapper = styled.div`
   display: flex;
-  position: absolute;
+  position: fixed;
   width: 100vw;
-  height: 100vh;
-  padding-bottom: 75px;
+  top: 0;
+  right: 0;
+  bottom: 60px;
+  left: 0;
   overflow-y: hidden;
   top: 0;
-  bottom: 0;
+  z-index: 9999;
 `;
 
 const StyledWrapper = styled.div`
   display: flex;
-  background-color: ${({ theme }) => theme.backgroundLight};
+  background-color: ${({ theme }) => theme.backgroundSemiLight};
   background-repeat: no-repeat;
   background-size: 100% auto;
   flex-direction: column;
   flex: 1;
-  transition: 0.3s;
 `;
 
 const InfoWrapper = styled.div`
@@ -37,7 +38,7 @@ const InfoWrapper = styled.div`
 `;
 const CoverWrapper = styled.div`
   display: flex;
-  margin-top: auto;
+  margin-top: 5vh;
 `;
 
 const LinkWrapper = styled.div`
