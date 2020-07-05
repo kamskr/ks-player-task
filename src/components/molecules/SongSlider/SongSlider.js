@@ -44,11 +44,7 @@ const SongSlider = ({ songsIds, songsById, changeSong, activeSongIndex }) => {
       <Slider {...settings} ref={ref}>
         {songsIds.map((id, index) => (
           <CoverWrapper key={id + '-song'}>
-            <Cover
-              coverImageUrl={covers[index]}
-              active={index === activeSongIndex}
-              style={{ marginTop: index !== activeSongIndex ? '25%' : 0 }}
-            />
+            <Cover coverImageUrl={covers[index]} active={index === activeSongIndex} />
           </CoverWrapper>
         ))}
       </Slider>
