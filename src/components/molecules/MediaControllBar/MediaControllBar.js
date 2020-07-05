@@ -23,6 +23,7 @@ const StyledWrapper = styled.div`
   justify-content: center;
   align-items: center;
   padding: 10px 0;
+  margin: 0 30px;
 `;
 
 const getRandomSong = (current, length) => {

@@ -4,7 +4,7 @@ import React from 'react';
 const IconBtn = styled.button`
   min-width: 20px;
   height: 30px;
-  margin: 0 15px;
+  margin: 0 auto;
   
   background-image: url(${({ icon }) => icon});
   background-repeat: no-repeat;
@@ -43,6 +43,7 @@ const IconBtn = styled.button`
       /* padding-right: 40px; */
         min-width:90px;
         height: 90px;
+        margin: 0 15px 0 auto;
         background-size: 100%;
         background-color: transparent;
         background-position: right 0px center;
@@ -60,8 +61,7 @@ const IconBtn = styled.button`
       height: 60px;
       background-size: 100%;
       background-color: transparent;
-      margin-right: 30px;
-      margin-left: 30px;
+      margin: 0 30px 0 auto;
       background-position: right 0px center;
       :active {
         transform: scale(1);
@@ -72,6 +72,7 @@ const IconBtn = styled.button`
     ${({ moreIcon }) =>
       moreIcon &&
       css`
+        margin: 0 15px;
         padding: 0px;
         background-size: 15%;
         background-color: transparent;
@@ -81,6 +82,7 @@ const IconBtn = styled.button`
       css`
         min-width: 10px;
         height: 30px;
+        margin: 0 15px;
       `} 
       ${({ playlist }) =>
         playlist &&
