@@ -63,6 +63,10 @@ const MediaControllBar = ({
   }, [songs, activeSongIndex, changeSong, repeat, shuffle]);
 
   const playPrevious = useCallback(() => {
+    if (isShuffle) {
+      shuffle();
+      return;
+    }
     let nextSongIndex = songs.length - 1;
     if (!(activeSongIndex - 1 < 0)) {
       nextSongIndex = activeSongIndex - 1;

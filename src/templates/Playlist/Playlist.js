@@ -8,7 +8,7 @@ import HideIcon from '../../assets/icons/hide_ico.svg';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import bacgroundImage from '../../assets/bg_image.jpg';
-import { changeRepeat } from '../../redux/actionCreators/songsActionCreators';
+import { changeShuffle } from '../../redux/actionCreators/songsActionCreators';
 const StyledWrapper = styled.div`
   background-image: url(${bacgroundImage});
   background-image: linear-gradient(
@@ -95,7 +95,16 @@ const ButtonWrapper = styled.div`
   padding: 0px 40px 0 40px;
 `;
 
-const Playlist = ({ song, activeSongIndex, hide, changeRepeat }) => {
+const Playlist = ({ song, activeSongIndex, hide, changeShuffle, isShuffle }) => {
+  const shuffleOnClick = () => {
+    if (isShuffle) {
+      hide();
+      return;
+    }
+    hide();
+    changeShuffle();
+  };
+
   return (
     <StyledWrapper>
       <TopNavbar navType="playlist" showLess={hide} />
@@ -139,7 +148,7 @@ const Playlist = ({ song, activeSongIndex, hide, changeRepeat }) => {
           </ol>
         </PlaylistWrapper>
         <ButtonWrapper>
-          <Button onClick={changeRepeat}>SHUFFLE PLAY</Button>
+          <Button onClick={shuffleOnClick}>SHUFFLE PLAY</Button>
           <ButtonIcon icon={HideIcon} onClick={hide} hideIcon />
         </ButtonWrapper>
       </PlaylistViewWrapper>
@@ -148,8 +157,9 @@ const Playlist = ({ song, activeSongIndex, hide, changeRepeat }) => {
 };
 
 const mapStateToProps = (state) => ({
+  isShuffle: state.songs.isShuffle,
   activeSongIndex: state.songs.activeSongIndex,
   song: state.songs.byId[state.songs.allIds[state.songs.activeSongIndex]],
 });
 
-export default compose(connect(mapStateToProps, { changeRepeat }), withTheme)(Playlist);
+export default compose(connect(mapStateToProps, { changeShuffle }), withTheme)(Playlist);
