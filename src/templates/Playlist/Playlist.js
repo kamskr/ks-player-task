@@ -56,7 +56,6 @@ const PlaylistWrapper = styled.div`
   overflow: scroll;
   flex: 1;
   ol {
-    overflow: scroll;
     padding: 0;
     height: 110%;
     list-style: none;

@@ -5,7 +5,7 @@ import styled, { withTheme } from 'styled-components';
 const SongDisplayStyle = styled.div`
   display: flex;
   flex-direction: row;
-
+  width: 100%;
   min-width: 0;
 `;
 
