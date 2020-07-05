@@ -10,10 +10,12 @@ import { changeSong } from '../../../redux/actionCreators/songsActionCreators';
 
 let lastActiveSongIndex = 0;
 
-const StyledWrapper = styled.div``;
+const StyledWrapper = styled.div`
+  margin-bottom: 0;
+`;
 const ProgressBarWrapper = styled.div`
   display: flex;
-  margin: 20px 30px;
+  margin: 0px 40px 20px 40px;
 `;
 const Span = styled.span`
   margin: auto 0;

@@ -4,6 +4,8 @@ import React, { useRef, useEffect } from 'react';
 const Canvas = styled.canvas`
   width: 100%;
   height: 50px;
+  margin-bottom: 0;
+  padding-bottom: 0;
 `;
 let speed = 3;
 let started = false;

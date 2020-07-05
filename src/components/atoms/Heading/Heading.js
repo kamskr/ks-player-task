@@ -4,6 +4,8 @@ const Heading = styled.h1`
   font-size: ${({ theme, fontSize }) => theme.fontSize[fontSize]};
   font-weight: ${({ theme, bold }) => (bold ? theme.bold : theme.light)};
   color: ${({ theme }) => theme.white};
+  padding: 0;
+  margin: 0;
 
   ${({ secondary }) =>
     secondary &&

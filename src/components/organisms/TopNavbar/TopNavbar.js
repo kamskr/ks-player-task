@@ -12,8 +12,11 @@ import { connect } from 'react-redux';
 import { play, pause } from '../../../redux/actionCreators/songsActionCreators';
 
 const StyledWrapper = styled.div`
-  padding-top: 20px;
   width: 100%;
+  height: 120px;
+  min-height: 120px;
+  padding: 0 0 0 25px;
+  position: relative;
   border: none;
   display: flex;
   flex-direction: row;
@@ -27,24 +30,20 @@ const InnerCenterWrapperMain = styled.div`
   text-align: center;
   margin: auto;
 
-  h1 {
-    margin: 5px 0;
-  }
+  /* h1 {
+    margin: 0;
+  } */
 `;
 const InnerCenterWrapperPlaylist = styled.div`
   display: flex;
   flex-direction: column;
   text-align: left;
-  margin-right: auto;
-  h1 {
-    margin: 5px 0;
-  }
 `;
 const InnerRightWrapper = styled.div`
   /* margin-left: auto; */
 `;
 
-const TopNavbar = ({ isPlaying, navType, song, showMore, showLess }) => (
+const TopNavbar = ({ isPlaying, navType, song, showMore, showLess, play, pause }) => (
   <StyledWrapper>
     <ButtonIcon icon={BackIcon} onClick={showLess} backIcon />
     {navType === 'main' && (

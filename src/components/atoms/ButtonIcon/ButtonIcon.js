@@ -50,20 +50,30 @@ const IconBtn = styled.button`
     ${({ playingIconTop }) =>
       playingIconTop &&
       css`
-        min-width: 100px;
-        height: 100px;
-        background-size: 60%;
+      margin: 0;
+        min-width:90px;
+        height: 90px;
+        background-size: 100%;
         background-color: transparent;
-        background-position: left 6px center;
+        background-position: right 1px center;
+        margin-right: 0px;
+        :active {s
+          transform: scale(1);
+          -webkit-transform: scale(1);
+        }
       `}
   ${({ notPlayingIconTop }) =>
     notPlayingIconTop &&
     css`
-      margin: 0 10px;
-      min-width: 100px;
-      height: 100px;
+      /* margin: 0 10px; */
+      min-width: 60px;
+      height: 60px;
       background-size: 100%;
       background-color: transparent;
+      :active {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+      }
     `}
 
     ${({ moreIcon }) =>
@@ -82,8 +92,10 @@ const IconBtn = styled.button`
       ${({ playlist }) =>
         playlist &&
         css`
+          width: 30px;
           margin: 0 40px;
         `}
+        
 `;
 
 const MoreWrapper = styled.div`
@@ -92,6 +104,7 @@ const MoreWrapper = styled.div`
   flex-direction: column;
   background-color: transparent;
   border: none;
+  padding: 0 25px 0 0;
   :active {
     transform: scale(1.2);
     -webkit-transform: scale(1.2);

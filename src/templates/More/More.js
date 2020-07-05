@@ -18,21 +18,6 @@ const HideWrapper = styled.div`
   overflow-y: hidden;
   top: 0;
   bottom: 0;
-
-  .enter {
-    opacity: 0;
-  }
-  .enter-active {
-    opacity: 1;
-    transition: opacity 200ms;
-  }
-  .exit {
-    opacity: 1;
-  }
-  .exit-active {
-    opacity: 0;
-    transition: opacity 200ms;
-  }
 `;
 
 const StyledWrapper = styled.div`
@@ -50,7 +35,6 @@ const InfoWrapper = styled.div`
   margin-bottom: auto;
 `;
 const CoverWrapper = styled.div`
-  flex: 1;
   display: flex;
   margin-top: auto;
 `;
@@ -69,9 +53,9 @@ const More = ({ song, activeSongIndex, hide }) => {
       <StyledWrapper>
         <TopNavbar showLess={hide} navType="viewMore" />
         <CoverWrapper>
-          <div style={{ margin: 'auto auto 0 auto', display: 'flex' }}>
-            <Cover coverImageUrl={covers[activeSongIndex]} />
-          </div>
+          {/* <div style={{ margin: 'auto auto 0 auto', display: 'flex' }}> */}
+          <Cover coverImageUrl={covers[activeSongIndex]} />
+          {/* </div> */}
         </CoverWrapper>
         <InfoWrapper>
           <Heading bold>{song.name}</Heading>

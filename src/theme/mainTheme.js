@@ -1,6 +1,6 @@
 export const theme = {
   background: 'rgb(30, 24, 55)',
-  backgroundLight: 'rgba(30,24,55,0.9)',
+  backgroundLight: 'rgba(30,24,55,0.95)',
   accent: 'hsl(252, 59%, 60%)',
   accent2: 'hsl(236, 19%, 53%)',
   black: 'hsl(0, 0%, 19%)',

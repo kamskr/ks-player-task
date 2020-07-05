@@ -9,7 +9,6 @@ import { connect } from 'react-redux';
 const StyledWrapper = styled.div`
   display: flex;
   width: 100vw;
-  max-height: 120px;
   min-height: 80px;
   margin-right: -20px;
   background-color: ${({ theme }) => theme.white};
@@ -25,7 +24,7 @@ const InnerSectionWrapper = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  margin: auto 20px auto 0;
+  margin: auto 40px auto 0;
 `;
 
 const BottomNavbar = ({ songsById, songs, activeSongIndex, showPlaylist }) => {
