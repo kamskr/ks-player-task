@@ -18,33 +18,33 @@ const App = styled.div`
   top: 0;
   bottom: 0;
 
-  .pageSliderLeft-enter {
+  .moreSlide-enter {
     transform: translate3d(100%, 0, 0);
   }
-  .pageSliderLeft-enter.pageSliderLeft-enter-active {
+  .moreSlide-enter.moreSlide-enter-active {
     transform: translate3d(0, 0, 0);
     transition: all 300ms;
   }
-  .pageSliderLeft-exit {
+  .moreSlide-exit {
     transform: translate3d(0, 0, 0);
   }
-  .pageSliderLeft-exit.pageSliderLeft-exit-active {
+  .moreSlide-exit.moreSlide-exit-active {
     transform: translate3d(100%, 0, 0);
     transition: all 300ms;
   }
 
-  .pageSliderRight-enter {
-    transform: translate3d(-100%, 0, 0);
+  .playlistSlide-enter {
+    transform: translate3d(0, 100%, 0);
   }
-  .pageSliderRight-enter.pageSliderRight-enter-active {
+  .playlistSlide-enter.playlistSlide-enter-active {
     transform: translate3d(0, 0, 0);
     transition: all 300ms;
   }
-  .pageSliderRight-exit {
+  .playlistSlide-exit {
     transform: translate3d(0, 0, 0);
   }
-  .pageSliderRight-exit.pageSliderRight-exit-active {
-    transform: translate3d(-100%, 0, 0);
+  .playlistSlide-exit.playlistSlide-exit-active {
+    transform: translate3d(0, 100%, 0);
     transition: all 300ms;
   }
 `;
@@ -63,13 +63,20 @@ const Root = () => {
           <CSSTransition
             in={showMore}
             timeout={300}
-            classNames="pageSliderLeft"
+            classNames="moreSlide"
             mountOnEnter={true}
             unmountOnExit={true}
           >
             <More hide={() => setShowMore(false)} />
           </CSSTransition>
-          <CSSTransition in={showPlaylist} timeout={300} unmountOnExit>
+          <CSSTransition
+            in={showPlaylist}
+            timeout={300}
+            timeout={300}
+            classNames="playlistSlide"
+            mountOnEnter={true}
+            unmountOnExit={true}
+          >
             <Playlist hide={() => setShowPlaylist(false)} />
           </CSSTransition>
           {/* <Playlist hidden={!showPlaylist} hide={() => setShowPlaylist(false)} /> */}
