@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 
 const Cover = styled.div`
-  width: 35vw;
-  height: 35vw;
+  width: 25vw;
+  height: 25vw;
   max-width: 300px;
   border-radius: 50%;
   background-image: url(${({ coverImageUrl }) => coverImageUrl});

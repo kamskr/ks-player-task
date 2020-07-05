@@ -14,7 +14,7 @@ import { changeSong } from '../../../redux/actionCreators/songsActionCreators';
 
 const StyledWrapper = styled.div`
   flex: 1;
-  margin-top: 50px;
+  margin: 20px 0;
 `;
 const CoverWrapper = styled.div`
   display: flex;
@@ -47,7 +47,7 @@ const SongSlider = ({ songsIds, songsById, changeSong, activeSongIndex }) => {
             <Cover
               coverImageUrl={covers[index]}
               active={index === activeSongIndex}
-              style={{ marginTop: index !== activeSongIndex ? '15%' : 0 }}
+              style={{ marginTop: index !== activeSongIndex ? '25%' : 0 }}
             />
           </CoverWrapper>
         ))}
