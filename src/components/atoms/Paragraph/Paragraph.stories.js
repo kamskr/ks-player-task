@@ -6,4 +6,3 @@ export default { title: 'Paragraph', decorators: [withKnobs] };
 
 export const paragraphBlack = () => <Paragraph color="black">Paragraph</Paragraph>;
 export const paragraphGrey = () => <Paragraph color="grey">Paragraph</Paragraph>;
-// Knobs as dynamic variables.

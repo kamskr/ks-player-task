@@ -74,4 +74,3 @@ const ProgressBar = ({ progress, onRewind }) => (
   </BarContainer>
 );
 export default ProgressBar;
-// https://dev.to/richiksc/standardizing-input-type-range-styling-3lkl

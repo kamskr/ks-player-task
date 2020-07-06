@@ -6,4 +6,3 @@ export default {
 };
 
 export const songDisplay = () => <SongDisplay songTitle="Livin' In A Movie" duration={400} />;
-// Knobs as dynamic variables.

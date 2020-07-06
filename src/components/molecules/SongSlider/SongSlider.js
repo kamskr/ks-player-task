@@ -20,7 +20,7 @@ const CoverWrapper = styled.div`
   flex: 1;
 `;
 
-const SongSlider = ({ songsIds, songsById, changeSong, activeSongIndex }) => {
+const SongSlider = ({ songsIds, changeSong, activeSongIndex }) => {
   const settings = {
     centerMode: true,
     infinite: true,

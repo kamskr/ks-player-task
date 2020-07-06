@@ -51,7 +51,6 @@ const MediaControllBar = ({
   ]);
 
   const playNext = useCallback(() => {
-    console.log(isShuffle);
     if (isShuffle) {
       shuffle();
       return;
@@ -61,7 +60,7 @@ const MediaControllBar = ({
       nextSongIndex = activeSongIndex + 1;
     }
     changeSong(nextSongIndex);
-  }, [songs, activeSongIndex, changeSong, repeat, shuffle]);
+  }, [songs, activeSongIndex, changeSong, shuffle, isShuffle]);
 
   const playPrevious = useCallback(() => {
     if (isShuffle) {
@@ -73,7 +72,7 @@ const MediaControllBar = ({
       nextSongIndex = activeSongIndex - 1;
     }
     changeSong(nextSongIndex);
-  }, [songs, activeSongIndex, changeSong]);
+  }, [songs, activeSongIndex, changeSong, isShuffle, shuffle]);
 
   return (
     <StyledWrapper>

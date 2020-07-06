@@ -9,8 +9,8 @@ import store from '../src/redux/store';
 
 addDecorator((story) => (
   <Fragment>
-    <GlobalStyle />
     <ThemeProvider theme={theme}>
+      <GlobalStyle />
       <Provider store={store}>{story()}</Provider>
     </ThemeProvider>
   </Fragment>

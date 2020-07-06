@@ -14,7 +14,8 @@ const DarkBackground = styled.div`
   width: 1000px;
   height: 500px;
   background: ${({ theme }) => theme.background};
+  button {
+    margin: 0 20px;
+  }
 `;
-export const mediaControllBarActive = () => <MediaControllBar isPlaying="true" />;
-export const mediaControllBarInactive = () => <MediaControllBar isPlaying="false" />;
-// Knobs as dynamic variables.
+export const mediaControllBar = () => <MediaControllBar />;

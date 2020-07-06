@@ -16,5 +16,4 @@ const DarkBackground = styled.div`
   background: ${({ theme }) => theme.background};
 `;
 
-export const soundWave = () => <SoundWave progress={50} />;
-// Knobs as dynamic variables.
+export const soundWave = () => <SoundWave progress={50} isPlaying={true} />;

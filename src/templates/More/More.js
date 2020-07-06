@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
 import TopNavbar from '../../components/organisms/TopNavbar/TopNavbar';
-import BottomNavbar from '../../components/organisms/BottomNavbar/BottomNavbar';
 import Cover from '../../components/atoms/Cover/Cover';
 import Heading from '../../components/atoms/Heading/Heading';
 import cover from '../../assets/covers/cover.png';
@@ -55,9 +54,7 @@ const More = ({ song, activeSongIndex, hide }) => {
       <StyledWrapper>
         <TopNavbar showLess={hide} navType="viewMore" />
         <CoverWrapper>
-          {/* <div style={{ margin: 'auto auto 0 auto', display: 'flex' }}> */}
           <Cover coverImageUrl={covers[activeSongIndex]} more />
-          {/* </div> */}
         </CoverWrapper>
         <InfoWrapper>
           <Heading bold fontSize="l">

@@ -14,7 +14,6 @@ const GlobalStyle = createGlobalStyle`
         position: fixed;
         font-size: 1.6rem; // happy rems
         font-family: 'Montserrat', sans-serif;
-        background-color: ${({ theme }) => theme.background};
     }
 
     html, body {

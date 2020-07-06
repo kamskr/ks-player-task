@@ -27,6 +27,10 @@ const IconBtn = styled.button`
       background-size: 100%;
       background-color: transparent;
       background-position: left 6px center;
+      :active {s
+        transform: scale(1);
+        -webkit-transform: scale(1);
+      }
     `}
   ${({ notPlayingIcon }) =>
     notPlayingIcon &&
@@ -36,27 +40,28 @@ const IconBtn = styled.button`
       height: 140px;
       background-size: 60%;
       background-color: transparent;
+      :active {s
+        transform: scale(1);
+        -webkit-transform: scale(1);
+      }
     `}
-    ${({ playingIconTop }) =>
-      playingIconTop &&
-      css`
-      /* padding-right: 40px; */
-        min-width:90px;
-        height: 90px;
-        margin: 0 15px 0 auto;
-        background-size: 100%;
-        background-color: transparent;
-        background-position: right 0px center;
-        /* margin-left: 10px; */
-        :active {s
-          transform: scale(1);
-          -webkit-transform: scale(1);
-        }
-      `}
+  ${({ playingIconTop }) =>
+    playingIconTop &&
+    css`
+      min-width:90px;
+      height: 90px;
+      margin: 0 15px 0 auto;
+      background-size: 100%;
+      background-color: transparent;
+      background-position: right 0px center;
+      :active {s
+        transform: scale(1);
+        -webkit-transform: scale(1);
+      }
+    `}
   ${({ notPlayingIconTop }) =>
     notPlayingIconTop &&
     css`
-      /* margin: 0 10px; */
       min-width: 60px;
       height: 60px;
       background-size: 100%;
@@ -69,40 +74,39 @@ const IconBtn = styled.button`
       }
     `}
 
-    ${({ moreIcon }) =>
-      moreIcon &&
-      css`
-        margin: 0 15px;
-        padding: 0px;
-        background-size: 15%;
-        background-color: transparent;
-      `}
-    ${({ backIcon }) =>
-      backIcon &&
-      css`
-        min-width: 10px;
-        height: 30px;
-        margin: 0 15px;
-      `} 
-      ${({ playlist }) =>
-        playlist &&
-        css`
-          width: 25px;
-          margin: 0 40px;
-        `}
-        ${({ hideIcon }) =>
-          hideIcon &&
-          css`
-            margin: 20px;
-            background-color: transparent;
-          `}
-          ${({ active }) =>
-            active &&
-            css`
-              filter: invert(100%) sepia(80%) saturate(800%) hue-rotate(205deg) brightness(100%)
-                contrast(106%);
-            `}
-          
+  ${({ moreIcon }) =>
+    moreIcon &&
+    css`
+      margin: 0 15px;
+      padding: 0px;
+      background-size: 15%;
+      background-color: transparent;
+    `}
+  ${({ backIcon }) =>
+    backIcon &&
+    css`
+      min-width: 10px;
+      height: 30px;
+      margin: 0 15px;
+    `} 
+  ${({ playlist }) =>
+    playlist &&
+    css`
+      width: 25px;
+      margin: 0 40px;
+    `}
+  ${({ hideIcon }) =>
+    hideIcon &&
+    css`
+      margin: 20px;
+      background-color: transparent;
+    `}
+  ${({ active }) =>
+    active &&
+    css`
+      filter: invert(100%) sepia(80%) saturate(800%) hue-rotate(205deg) brightness(100%)
+        contrast(106%);
+    `}
 `;
 
 const MoreWrapper = styled.div`

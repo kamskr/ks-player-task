@@ -7,4 +7,3 @@ export default {
 };
 
 export const bottomNavbar = () => <BottomNavbar />;
-// Knobs as dynamic variables.

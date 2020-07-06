@@ -10,6 +10,7 @@ const Heading = styled.h1`
   ${({ secondary }) =>
     secondary &&
     css`
+      margin-top: 5px;
       text-transform: uppercase;
       font-size: ${({ theme, fontSize }) =>
         fontSize ? theme.fontSize[fontSize] : theme.fontSize.m};

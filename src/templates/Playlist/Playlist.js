@@ -78,7 +78,6 @@ const PlaylistWrapper = styled.div`
 `;
 const PlaylistViewWrapper = styled.div`
   display: flex;
-  /* position: relative; */
   background-color: ${({ theme }) => theme.white};
   width: 100%;
   height: 100%;

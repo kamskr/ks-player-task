@@ -19,6 +19,6 @@ const DarkBackground = styled.div`
   background: ${({ theme }) => theme.background};
 `;
 
-export const cover1 = () => <Cover coverImage={Cover1} />;
-export const cover2 = () => <Cover coverImage={Cover2} />;
-export const unreleased_cover = () => <Cover coverImage={Unreleased_cover} unreleased />;
+export const cover1 = () => <Cover coverImageUrl={Cover1} />;
+export const cover2 = () => <Cover coverImageUrl={Cover2} />;
+export const unreleased_cover = () => <Cover coverImageUrl={Unreleased_cover} unreleased active />;

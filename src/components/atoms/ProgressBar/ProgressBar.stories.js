@@ -11,9 +11,8 @@ const DarkBackground = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 500px;
+  width: 1000px;
   height: 500px;
   background: ${({ theme }) => theme.background};
 `;
 export const progressBar = () => <ProgressBar progress={50} />;
-// Knobs as dynamic variables.

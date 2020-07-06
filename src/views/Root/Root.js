@@ -14,7 +14,6 @@ import store from '../../redux/store';
 const App = styled.div`
   position: relative;
   height: 100vh;
-  /* overflow-y: auto; */
   top: 0;
   bottom: 0;
 
