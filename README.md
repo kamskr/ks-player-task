@@ -22,7 +22,7 @@ The progress bar was made with input slider, thanks to that you can hold and dra
 
 ## Sound Wave
 
-To create sound wave I used simple canvas. The wave moves at random speeds only if the song is playing.
+To create the sound wave I used a canvas. Wave moves at random speeds only if the song is playing.
 
 ## Animations
 
