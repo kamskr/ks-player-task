@@ -15,6 +15,7 @@ const StyledWrapper = styled.div`
   background-color: ${({ theme }) => theme.white};
   align-items: center;
   justify-content: center;
+  padding-right: 24px;
 `;
 const Next = styled.span`
   font-size: ${({ theme }) => theme.fontSize.s};
