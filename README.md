@@ -28,3 +28,5 @@ To create the sound wave I used a canvas. Wave moves at random speeds only if th
 
 For button-click animations I used simple transform: scale().
 For the slidig from right and button of "more" and "playlist" I used react-transition-group: https://reactcommunity.org/react-transition-group/
+
+test commit from ipad
